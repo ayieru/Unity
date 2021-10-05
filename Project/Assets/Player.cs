@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
         x = 0;
         z = 0;
-        speed = 1f;
+        speed = 0.1f;
 
         cameraRot = cam.transform.localRotation;
         playerRot = transform.localRotation;
@@ -56,12 +56,7 @@ public class Player : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal") * speed;
         z = Input.GetAxisRaw("Vertical") * speed;
 
-        Vector3 forward = cam.transform.forward;
-        Vector3 right = cam.transform.right;
-        forward.y = 0f;
-        right.y = 0f;
-
-        rb.AddForce(forward * z + right * x);
+        transform.position += cam.transform.forward * z + cam.transform.right * x;
 
     }
 

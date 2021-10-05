@@ -47,8 +47,6 @@ public class Player : MonoBehaviour
         transform.localRotation = playerRot;
 
         UpdareCursorLock();
-
-        Debug.Log(rb.velocity);
     }
 
     private void FixedUpdate()
@@ -84,8 +82,8 @@ public class Player : MonoBehaviour
     public Quaternion ClampRotation(Quaternion quat)
     {
         quat.x /= quat.w;
+        quat.y /= quat.w;
         quat.z /= quat.w;
-        quat.x /= quat.w;
         quat.w = 1.0f;
 
         float angleX = Mathf.Atan(quat.x) * Mathf.Rad2Deg * 2.0f;

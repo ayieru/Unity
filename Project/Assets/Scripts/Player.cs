@@ -35,6 +35,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
+
+        x = Input.GetAxisRaw("Horizontal") * speed;
+        z = Input.GetAxisRaw("Vertical") * speed;
+        Vector3 forward = cam.transform.forward;
+        forward.y = 0.0f;
+
+        transform.position += forward * z + cam.transform.right * x;
+
         float xRot = Input.GetAxis("Mouse X") * xSensitivity;
         float yRot = Input.GetAxis("Mouse Y") * ySensitivity;
 
@@ -51,10 +63,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        x = Input.GetAxisRaw("Horizontal") * speed;
-        z = Input.GetAxisRaw("Vertical") * speed;
-
-        transform.position += cam.transform.forward * z + cam.transform.right * x;
+        
 
     }
 

@@ -14,7 +14,7 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interval = 3f;
+        interval = 1f;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class EnemySpawn : MonoBehaviour
         if (time > interval)
         {
             GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.position = new Vector3(8.5f, 6.5f, 11.8f);
+            enemy.transform.position = this.transform.position;
             time = 0f;
         }
     }

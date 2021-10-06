@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7a877564897fdc409ed09b65b2216e9
+guid: c58b99560824c16418ca2bf74f33a81e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_SM_Map
-    second: {fileID: 2100000, guid: 60d73e6a234314d469a54b2da4911fb6, type: 2}
+    second: {fileID: 2100000, guid: c820e85fec88bde40b72e274466ecf21, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 20bdd1a17af075b449e654e668aef417, type: 2}
+    second: {fileID: 2100000, guid: d0e8e0c6ff3cba243a582d0dac78fd07, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

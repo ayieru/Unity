@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "P") { 
+        if (other.gameObject.tag == "Player") { 
             Destroy(gameObject);
         }
     }

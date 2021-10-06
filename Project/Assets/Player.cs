@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
         x = 0;
         z = 0;
-        speed = 1f;
+        speed = 0.1f;
 
         cameraRot = cam.transform.localRotation;
         playerRot = transform.localRotation;
@@ -47,8 +47,6 @@ public class Player : MonoBehaviour
         transform.localRotation = playerRot;
 
         UpdareCursorLock();
-
-        Debug.Log(rb.velocity);
     }
 
     private void FixedUpdate()
@@ -56,12 +54,7 @@ public class Player : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal") * speed;
         z = Input.GetAxisRaw("Vertical") * speed;
 
-        Vector3 forward = cam.transform.forward;
-        Vector3 right = cam.transform.right;
-        forward.y = 0f;
-        right.y = 0f;
-
-        rb.AddForce(forward * z + right * x);
+        transform.position += cam.transform.forward * z + cam.transform.right * x;
 
     }
 
@@ -89,8 +82,8 @@ public class Player : MonoBehaviour
     public Quaternion ClampRotation(Quaternion quat)
     {
         quat.x /= quat.w;
+        quat.y /= quat.w;
         quat.z /= quat.w;
-        quat.x /= quat.w;
         quat.w = 1.0f;
 
         float angleX = Mathf.Atan(quat.x) * Mathf.Rad2Deg * 2.0f;

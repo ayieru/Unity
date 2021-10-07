@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             currentHp -= 10f;
+            currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         }
     }
 

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class WeaponPivot : MonoBehaviour
 {
-    public GameObject playerGB;
-    public float TargetDistance;
+    public GameObject playerGO;
+    public float targetDistance;
 
     public float gizmoSize = 0.3f;
     public Color gizmoColor = Color.yellow;
 
     private void Start()
     {
-        Vector3 distance = playerGB.transform.forward * TargetDistance;
+        Vector3 distance = playerGO.transform.forward * targetDistance;
         Vector3 target;
-        target.x = playerGB.transform.position.x + distance.x;
-        target.z = playerGB.transform.position.z + distance.z;
+        target.x = playerGO.transform.position.x + distance.x;
+        target.z = playerGO.transform.position.z + distance.z;
         target.y = transform.position.y + distance.y;
 
         transform.LookAt(target);
@@ -23,7 +23,7 @@ public class WeaponPivot : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(playerGB.transform.position, playerGB.transform.forward * 10, Color.green);
+        Debug.DrawRay(playerGO.transform.position, playerGO.transform.forward * 10, Color.green);
     }
 
     void OnDrawGizmos()

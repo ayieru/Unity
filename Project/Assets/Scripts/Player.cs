@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     float minX = -90f, maxX = 90f;
 
     // 体力
-    [SerializeField] float hp;
+    public float maxHp { get; private set; }
+    public float currentHp { get; private set; }
 
     //
 
@@ -34,6 +35,9 @@ public class Player : MonoBehaviour
 
         x = 0;
         z = 0;
+
+        maxHp = 100;
+        currentHp = maxHp;
 
         cameraRot = cam.transform.localRotation;
         playerRot = transform.localRotation;
@@ -62,6 +66,14 @@ public class Player : MonoBehaviour
     {
         
 
+    }
+
+    void OnCollisionEnter(Collision  collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            currentHp -= 10f;
+        }
     }
 
     private void SetMove()

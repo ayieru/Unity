@@ -1,32 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemySpawn : MonoBehaviour
 {
     //敵プレハブ
     public GameObject enemyPrefab;
-    //敵生成時間間隔
-    private float interval;
-    //経過時間
-    private float time = 0f;
+
+    [SerializeField]
+    //スポーン時間
+    private int[] spawntime = new int[10];
+
+    private float t;
+
+    private int spawncount;
+
+    //配列サイズ
+    private int arraysize;
 
     // Start is called before the first frame update
     void Start()
     {
-        interval = 3f;
+        arraysize = spawntime.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-
-        if (time > interval)
+        if (spawncount < arraysize)
         {
-            GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.position = new Vector3(8.5f, 6.5f, 11.8f);
-            time = 0f;
+            t = (float)Math.Round(Time.realtimeSinceStartup, 1, MidpointRounding.AwayFromZero);
+
+            for (int i = 0; i < arraysize; i++)
+            {
+                if (spawntime[i] == t)
+                {
+                    GameObject enemy = Instantiate(enemyPrefab);
+                    enemy.transform.position = this.gameObject.transform.position;
+                    spawntime[i] = -1;
+                    spawncount++;
+                }
+            }
         }
     }
 }

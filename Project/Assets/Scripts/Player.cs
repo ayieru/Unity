@@ -6,8 +6,11 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
 
+    //移動速度関係
     float x, z;
-    float speed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float dashSpeedRate;
+
 
     public GameObject cam;
     Quaternion cameraRot, playerRot;
@@ -16,8 +19,13 @@ public class Player : MonoBehaviour
 
     bool cursorLock = true;
 
+    //向きの制限
     float minX = -90f, maxX = 90f;
 
+    // 体力
+    [SerializeField] float hp;
+
+    //
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +34,6 @@ public class Player : MonoBehaviour
 
         x = 0;
         z = 0;
-        speed = 0.1f;
 
         cameraRot = cam.transform.localRotation;
         playerRot = transform.localRotation;
@@ -35,17 +42,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            
-        }
-
-        x = Input.GetAxisRaw("Horizontal") * speed;
-        z = Input.GetAxisRaw("Vertical") * speed;
-        Vector3 forward = cam.transform.forward;
-        forward.y = 0.0f;
-
-        transform.position += forward * z + cam.transform.right * x;
+        SetMove();
 
         float xRot = Input.GetAxis("Mouse X") * xSensitivity;
         float yRot = Input.GetAxis("Mouse Y") * ySensitivity;
@@ -67,7 +64,27 @@ public class Player : MonoBehaviour
 
     }
 
-    public void UpdareCursorLock()
+    private void SetMove()
+    {
+        float dashRate;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dashRate = dashSpeedRate;
+        }
+        else
+        {
+            dashRate = 1;
+        }
+
+        x = Input.GetAxisRaw("Horizontal") * walkSpeed * dashRate;
+        z = Input.GetAxisRaw("Vertical") * walkSpeed * dashRate;
+        Vector3 forward = cam.transform.forward;
+        forward.y = 0.0f;
+
+        transform.position += forward * z + cam.transform.right * x;
+    }
+
+    private void UpdareCursorLock()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

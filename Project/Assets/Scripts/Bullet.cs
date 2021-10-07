@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // スペースキーが押されたかを判定
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             // 弾を発射する
             LauncherShot();

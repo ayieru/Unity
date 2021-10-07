@@ -5,26 +5,34 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    Vector3 tmp;
-    NavMeshAgent agent;
-    GameObject e;
+    private Vector3 tmp;
+
+    private NavMeshAgent agent;
+
+    private GameObject p;
 
     // Start is called before the first frame update
     void Start()
     {
-        e = GameObject.Find("Player");
+        p = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
     }
     // Update is called once per frame
     void Update()
     {
-        tmp = e.transform.position;
+        tmp = p.transform.position;
         agent.SetDestination(tmp);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") { 
+        if (other.gameObject.tag == "Bullet") 
+        { 
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Player")
+        {
             Destroy(gameObject);
         }
     }

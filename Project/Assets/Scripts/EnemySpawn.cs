@@ -8,8 +8,8 @@ public class EnemySpawn : MonoBehaviour
     //敵プレハブ
     public GameObject enemyPrefab;
 
-    [SerializeField]
     //スポーン時間
+    [SerializeField]
     private int[] spawntime = new int[10];
 
     private float t;

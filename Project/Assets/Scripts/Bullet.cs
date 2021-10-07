@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
     [Tooltip("弾の速さ")]
     private float speed = 30f;
 
+    public float damage { get; private set; } = 30f;
+
     // Start is called before the first frame update
     void Start()
     {

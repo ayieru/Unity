@@ -38,6 +38,7 @@ public class EnemySpawn : MonoBehaviour
                 {
                     GameObject enemy = Instantiate(enemyPrefab);
                     enemy.transform.position = this.gameObject.transform.position;
+                    enemy.transform.rotation = this.gameObject.transform.rotation;
                     spawntime[i] = -1;
                     spawncount++;
                 }

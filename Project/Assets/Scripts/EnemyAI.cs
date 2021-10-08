@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     {
         p = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
+        agent.enabled = true;
     }
     // Update is called once per frame
     void Update()

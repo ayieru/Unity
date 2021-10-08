@@ -25,16 +25,17 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(tmp);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Bullet") 
-        { 
+        {
             Destroy(gameObject);
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+
         }
     }
 }

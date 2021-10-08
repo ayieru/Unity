@@ -12,6 +12,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private int[] spawntime = new int[10];
 
+    private float realTime;
     private float t;
 
     private int spawncount;
@@ -22,15 +23,18 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        realTime = 0;
         arraysize = spawntime.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
+        realTime += Time.deltaTime;
+
         if (spawncount < arraysize)
         {
-            t = (float)Math.Round(Time.realtimeSinceStartup, 1, MidpointRounding.AwayFromZero);
+            t = (float)Math.Round(realTime, 1, MidpointRounding.AwayFromZero);
 
             for (int i = 0; i < arraysize; i++)
             {

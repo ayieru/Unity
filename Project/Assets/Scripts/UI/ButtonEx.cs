@@ -32,6 +32,6 @@ public class ButtonEx : MonoBehaviour
 
     void MouseOver() 
     {
-        
+        Debug.Log("MouseOver");
     }
 }

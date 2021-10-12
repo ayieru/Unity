@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
 
     float xSensitivity = 3f, ySensitivity = 3f;
 
-    bool cursorLock = true;
-
     //向きの制限
     float minX = -90f, maxX = 90f;
 
@@ -59,7 +57,6 @@ public class Player : MonoBehaviour
         cam.transform.localRotation = cameraRot;
         transform.localRotation = playerRot;
 
-        UpdareCursorLock();
     }
 
     private void FixedUpdate()
@@ -95,27 +92,6 @@ public class Player : MonoBehaviour
         forward.y = 0.0f;
 
         transform.position += forward * z + cam.transform.right * x;
-    }
-
-    private void UpdareCursorLock()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            cursorLock = false;
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            cursorLock = true;
-        }
-
-        if (cursorLock)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
     }
 
     public Quaternion ClampRotation(Quaternion quat)

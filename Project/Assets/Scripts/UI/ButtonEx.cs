@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class ButtonEx : MonoBehaviour
 {
+    [SerializeField] GameObject P_Update;
+    [SerializeField] GameObject preData;
+    [SerializeField] GameObject updateData;
+
     private Button button;
 
     // Start is called before the first frame update
     void Start()
     {
+        P_Update.SetActive(false);
+
+        //イベントトリガー作成
         button = GetComponent<Button>();
         button.gameObject.AddComponent<EventTrigger>();
         var trigger = button.GetComponent<EventTrigger>();
@@ -20,18 +27,24 @@ public class ButtonEx : MonoBehaviour
         mouseOver.eventID = EventTriggerType.PointerEnter;
         mouseOver.callback.AddListener((data) => { MouseOver(); });
 
-        //トリガーにマウスオーバー機能追加
-        trigger.triggers.Add(mouseOver);
-    }
+        var mouseExit = new EventTrigger.Entry();
+        mouseExit.eventID = EventTriggerType.PointerExit;
+        mouseExit.callback.AddListener((data) => { MouseExit(); });
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //トリガーに機能追加
+        trigger.triggers.Add(mouseOver);
+        trigger.triggers.Add(mouseExit);
     }
 
     void MouseOver() 
     {
-        Debug.Log("MouseOver");
+        preData.GetComponent<PreviousDataUI>().PreviousData();
+        updateData.GetComponent<UpdateDataUI>().UpdateData();
+        P_Update.SetActive(true);
+    }
+
+    void MouseExit()
+    {
+        P_Update.SetActive(false);
     }
 }

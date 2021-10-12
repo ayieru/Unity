@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d80864f4571f9444fa7946d68c2ff9f3, type: 3}
-  m_Name: pistol
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: "\u30CF\u30F3\u30C9\u30AC\u30F3"
   level: 010000000200000003000000
   damage: 28000000320000003c000000
   headShot: 500000006400000078000000

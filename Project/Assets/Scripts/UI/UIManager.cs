@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject P_ShopChoice;
     [SerializeField] GameObject P_WeaponShop;
     [SerializeField] GameObject P_ObjectShop;
+    [SerializeField] GameObject P_Update;
 
     //現在のUIの状態保存
     enum UI_State{
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             SetWeapon_or_Object();
+            UpdareCursorLock();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -54,10 +56,8 @@ public class UIManager : MonoBehaviour
                 default:
                     break;
             }
-
+            UpdareCursorLock();
         }
-
-        UpdareCursorLock();
     }
 
     //プレイヤー画面
@@ -70,6 +70,7 @@ public class UIManager : MonoBehaviour
         P_ShopChoice.SetActive(false);
         P_WeaponShop.SetActive(false);
         P_ObjectShop.SetActive(false);
+        P_Update.SetActive(false);
     }
 
     //武器or配置物選択画面

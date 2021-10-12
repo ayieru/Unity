@@ -18,8 +18,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //○分○.○秒で表示
-        t.text = "残り " + ((int)gameTime / 60).ToString("0") + ":" + (gameTime % 60f).ToString("00.0");
+        t.text = "残り "+((int)gameTime / 60).ToString("0") + ":" + (gameTime % 60f).ToString("00.0");
         gameTime -= Time.deltaTime;
 
         if (gameTime <= 0)

@@ -11,7 +11,7 @@ public class UpdateDataUI : MonoBehaviour
     private int level;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         t = GetComponent<Text>();
     }

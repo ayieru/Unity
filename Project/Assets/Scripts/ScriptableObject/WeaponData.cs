@@ -8,7 +8,7 @@ public class WeaponData : ScriptableObject
 {
 	static int count = 3;
 
-	public string  weaponName;
+	public GameObject weapon;
 	public int[]   level    = new int[count];
 	public int[]   damage   = new int[count];
 	public int[]   headShot = new int[count];
@@ -17,4 +17,6 @@ public class WeaponData : ScriptableObject
 	public float[] reload   = new float[count];
 	public int[]   rate     = new int[count];
 	public int[]   add      = new int[count];
+
+
 }

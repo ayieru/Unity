@@ -11,15 +11,16 @@ public class PreviousDataUI : MonoBehaviour
     private int level;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //現在のレベル
-        level = 0;
         t = GetComponent<Text>();
     }
 
     public void PreviousData()
     {
+        //現在のレベル
+        level = 0;
+
         t.text = (preData.level[level]).ToString("") + "\n\n" +
                  (preData.damage[level]).ToString("") + "\n\n" +
                  (preData.ammo[level]).ToString("");

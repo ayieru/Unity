@@ -9,34 +9,32 @@ public class EnemyAI : MonoBehaviour,Interface
 
     private GameObject p;
 
-    private EnemyData data;
+    public EnemyData data;
 
-    private Vector3 tmp;
-    private int EnemyNum;
-    private int hp;
-    private float speed;
-    private int damage;
-    private int point;
+    public int hp;
+    public float speed;
+    public int damage;
+    public int point;
 
-    void Awake()
+    void Start()
     {
         p = GameObject.Find("Player");
 
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
+
         agent.speed *= speed;
     }
     // Update is called once per frame
     void Update()
     {
-        tmp = p.transform.position;
-        agent.SetDestination(tmp);
+        agent.SetDestination(p.transform.position);
     }
 
     public void ReceiveDamage(int Pdamage)
     {
         hp -= Pdamage;
-        if (hp < 0) 
+        if (hp <= 0) 
         {
             hp = 0;
             Destroy(gameObject);
@@ -47,12 +45,10 @@ public class EnemyAI : MonoBehaviour,Interface
 
     public void SetNum(int num)
     {
-        //EnemyNum = num;
-        //Debug.Log(EnemyNum);
+        hp = data.hp[num];
+        speed = data.speed[num];
+        damage = data.damage[num];
+        point = data.point[num];
 
-        //hp = data.hp[EnemyNum];
-        //speed = data.speed[EnemyNum];
-        //damage = data.damage[EnemyNum];
-        //point = data.point[EnemyNum];
     }
 }

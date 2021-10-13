@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class EnemySpawn : MonoBehaviour
                 if (spawntime[i] == t)
                 {
                     GameObject enemy = Instantiate(enemyData.enemy[enemyNum[i]]);
-                    enemy.GetComponent<EnemyAI>().SetNum(enemyNum[i]);
+                    enemy.GetComponent<EnemyAI>().SetNum(enemyNum[i] - 1);
                     enemy.transform.position = this.gameObject.transform.position;
                     enemy.transform.rotation = this.gameObject.transform.rotation;
                     spawntime[i] = -1;

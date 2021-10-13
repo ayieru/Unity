@@ -77,10 +77,4 @@ public class Ammo : MonoBehaviour
 
         return forward;
     }
-
-    void OnCollisionEnter(Collision other)
-    {
-        other.gameObject.GetComponent<EnemyAI>().ReceiveDamage(20);
-    }
-
 }

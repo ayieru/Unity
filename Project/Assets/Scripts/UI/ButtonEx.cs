@@ -11,10 +11,17 @@ public class ButtonEx : MonoBehaviour
     [SerializeField] GameObject updateData;
 
     private Button button;
+    private GameObject pre;
+    private GameObject aff;
 
     // Start is called before the first frame update
     void Start()
     {
+        P_Update.SetActive(true);
+
+        pre = GameObject.Find("UI_Update/P_Update/Data_pre");
+        aff = GameObject.Find("UI_Update/P_Update/Data_aff");
+
         P_Update.SetActive(false);
 
         //イベントトリガー作成
@@ -38,8 +45,8 @@ public class ButtonEx : MonoBehaviour
 
     void MouseOver() 
     {
-        preData.GetComponent<PreviousDataUI>().PreviousData();
-        updateData.GetComponent<UpdateDataUI>().UpdateData();
+        pre.GetComponent<PreviousDataUI>().PreviousData();
+        aff.GetComponent<UpdateDataUI>().UpdateData();
         P_Update.SetActive(true);
     }
 
@@ -47,4 +54,5 @@ public class ButtonEx : MonoBehaviour
     {
         P_Update.SetActive(false);
     }
+
 }

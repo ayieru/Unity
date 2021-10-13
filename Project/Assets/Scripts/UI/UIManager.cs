@@ -83,6 +83,7 @@ public class UIManager : MonoBehaviour
         P_ShopChoice.SetActive(true);
         P_WeaponShop.SetActive(false);
         P_ObjectShop.SetActive(false);
+        P_Update.SetActive(false);
     }
 
     //武器選択画面

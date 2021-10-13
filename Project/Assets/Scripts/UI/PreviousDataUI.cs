@@ -10,7 +10,6 @@ public class PreviousDataUI : MonoBehaviour
     public WeaponData preData;
     private int level;
 
-    // Start is called before the first frame update
     void Awake()
     {
         t = GetComponent<Text>();

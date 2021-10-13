@@ -5,12 +5,16 @@ using System;
 
 public class EnemySpawn : MonoBehaviour
 {
-    //敵プレハブ
-    public GameObject enemyPrefab;
+    //敵データ
+    public EnemyData enemyData;
 
     //スポーン時間
     [SerializeField]
     private int[] spawntime = new int[10];
+
+    //敵タイプ
+    [SerializeField]
+    private int[] enemyNum = new int[10];
 
     private float realTime;
     private float t;
@@ -40,7 +44,8 @@ public class EnemySpawn : MonoBehaviour
             {
                 if (spawntime[i] == t)
                 {
-                    GameObject enemy = Instantiate(enemyPrefab);
+                    GameObject enemy = Instantiate(enemyData.enemy[enemyNum[i]]);
+                    enemy.GetComponent<EnemyAI>().SetNum(enemyNum[i]);
                     enemy.transform.position = this.gameObject.transform.position;
                     enemy.transform.rotation = this.gameObject.transform.rotation;
                     spawntime[i] = -1;

@@ -17,6 +17,4 @@ public class WeaponData : ScriptableObject
 	public float[] reload   = new float[count];
 	public int[]   rate     = new int[count];
 	public int[]   add      = new int[count];
-
-
 }

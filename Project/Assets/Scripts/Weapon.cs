@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+abstract public class Weapon : MonoBehaviour
 {
     int level;
+    float damage;
 
-    public Weapon(string name, int level)
-    {
-        this.name = name;
-        this.level = level;
-    }
+    [SerializeField]
+    [Tooltip("弾の発射場所")]
+    private GameObject GO_firingPoint;
+
+    Magazine magazine;
+    Ammo ammo;
+
+    public abstract void Reload();
+    public abstract void Shoot();
+
 }

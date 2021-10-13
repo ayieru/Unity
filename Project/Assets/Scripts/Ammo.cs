@@ -2,40 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Ammo : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("弾の発射場所")]
+    [Tooltip("弾")]
     private GameObject GO_firingPoint;
 
     [SerializeField]
-    [Tooltip("弾")]
     private GameObject bullet;
 
     [SerializeField]
     [Tooltip("弾の速さ")]
     private float speed = 30f;
 
-    public float damage { get; private set; } = 30f;
+    public float power;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         // スペースキーが押されたかを判定
         if (Input.GetMouseButtonDown(0))
         {
             // 弾を発射する
-            LauncherShot();
+            Shoot();
         }
     }
 
-    private void LauncherShot()
+    private void Shoot()
     {
         // 上で取得した場所に、"bullet"のPrefabを出現させる
         GameObject newBullet = Instantiate(bullet, GetFPPosition(), transform.rotation);

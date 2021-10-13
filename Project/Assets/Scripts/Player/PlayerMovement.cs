@@ -12,7 +12,6 @@ public partial class Player
     [SerializeField] float walkSpeed;
     [SerializeField] float dashSpeedRate;
     [SerializeField] float jumpForce;
-    int jumpState = 0;
     bool isGround = false;
 
     float groundDrag = 6f;
@@ -79,13 +78,7 @@ public partial class Player
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpState = 1;
-            accelation.y = jumpForce;
             rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-        }
-        else
-        {
-            jumpState = 0;
         }
     }
 

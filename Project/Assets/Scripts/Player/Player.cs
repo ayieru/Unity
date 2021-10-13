@@ -7,6 +7,9 @@ public partial class Player : MonoBehaviour
     // 体力
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
+    Weapon weapon;
+    //Item item;
+
 
     void Start()
     {
@@ -35,6 +38,11 @@ public partial class Player : MonoBehaviour
             currentHp -= 10f;
             currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         }
+    }
+
+    void Shoot()
+    {
+        weapon.Shoot();
     }
 
 }

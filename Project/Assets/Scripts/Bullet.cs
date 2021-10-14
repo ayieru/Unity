@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        var p = other.gameObject.GetComponent<Interface>();
+        var p = other.gameObject.GetComponent<IReceiveDamage>();
 
         if (p != null)
         {

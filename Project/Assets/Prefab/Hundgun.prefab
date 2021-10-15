@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1499279618668657020}
   - component: {fileID: 1499279618668657017}
   - component: {fileID: 1499279618668657022}
+  - component: {fileID: 6628777829529664299}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6628777829529664299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499279618668657021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b446fa28101b00d418120727e91e95e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
 --- !u!1 &2004623232965533313
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,9 +102,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3207686304157302982}
-  - component: {fileID: 7347503151840783285}
+  - component: {fileID: 5611234577338554126}
+  - component: {fileID: -1453796778344258608}
   m_Layer: 0
-  m_Name: weaponPivot 1
+  m_Name: Hundgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004623232965533313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.56, y: -0.408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1499279618668657020}
@@ -112,7 +127,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7347503151840783285
+--- !u!114 &5611234577338554126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +139,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575b1174a11a37b4e96440eead10f85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGB: {fileID: 0}
-  TargetDistance: 5
+  targetDistance: 0
   gizmoSize: 0.3
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &-1453796778344258608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004623232965533313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867b71adda1beee4e9fee8bbd31c571b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GO_firingPoint: {fileID: 4579771963797752571}
+  magazine: {fileID: 6628777829529664299}
 --- !u!1001 &3700454046329441799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +225,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68f1a3a2b3b30e546b6c7acdcf194941, type: 3}
+--- !u!1 &4579771963797752571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 924426562075018492, guid: 68f1a3a2b3b30e546b6c7acdcf194941,
+    type: 3}
+  m_PrefabInstance: {fileID: 3700454046329441799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4579771963797752570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 924426562075018493, guid: 68f1a3a2b3b30e546b6c7acdcf194941,

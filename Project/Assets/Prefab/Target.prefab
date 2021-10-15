@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 924426562075018493}
-  - component: {fileID: 5573726627215463368}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -31,18 +30,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5573726627215463368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924426562075018492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605f04a13dd1ec645b87a25849fabf13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GO_firingPoint: {fileID: 0}
-  bullet: {fileID: 8245624770100081822, guid: 2e564ff08a562ad4ca327f947bf1bac9, type: 3}
-  speed: 100

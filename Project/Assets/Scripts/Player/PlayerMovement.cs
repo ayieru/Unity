@@ -71,7 +71,8 @@ public partial class Player
         Jump();
         velocity = forward + right;
         Debug.Log(rb.velocity);
-        rb.AddForce(velocity.normalized, ForceMode.Impulse);
+        //rb.AddForce(velocity.normalized, ForceMode.Impulse);
+        transform.position += velocity.normalized;
     }
 
     void Jump()

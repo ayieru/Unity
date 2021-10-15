@@ -3,7 +3,12 @@ guid: 79e01056ffbbf184c9c5018d66045183
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RPG7
+    second: {fileID: 2100000, guid: ca19b1c3a4085644885cdfd38ede2392, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

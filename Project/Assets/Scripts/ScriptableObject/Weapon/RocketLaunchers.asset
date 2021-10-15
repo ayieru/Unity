@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RocketLaunchers
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  image: {fileID: 0}
+  weaponName: "\u30ED\u30B1\u30C3\u30C8\u30E9\u30F3\u30C1\u30E3\u30FC"
   level: 00000000
   damage: c8000000
   headShot: c8000000

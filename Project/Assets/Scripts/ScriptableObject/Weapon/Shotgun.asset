@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  image: {fileID: 0}
+  weaponName: "\u30B7\u30E7\u30C3\u30C8\u30AC\u30F3"
   level: 0100000002000000
   damage: 6400000064000000
   headShot: c8000000c8000000

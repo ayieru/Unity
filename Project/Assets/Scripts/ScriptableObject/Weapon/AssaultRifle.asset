@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  image: {fileID: 0}
+  weaponName: "\u30A2\u30B5\u30EB\u30C8\u30E9\u30A4\u30D5\u30EB"
   level: 010000000200000003000000
   damage: 14000000190000001e000000
   headShot: 3c0000005000000064000000

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HundGun
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  image: {fileID: 0}
+  weaponName: "\u30CF\u30F3\u30C9\u30AC\u30F3"
   level: 010000000200000003000000
   damage: 28000000320000003c000000
   headShot: 500000006400000078000000

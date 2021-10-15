@@ -21,5 +21,4 @@ public class Ammo : MonoBehaviour
     {
         other.gameObject.GetComponent<EnemyAI>().ReceiveDamage(power);
     }
-
 }

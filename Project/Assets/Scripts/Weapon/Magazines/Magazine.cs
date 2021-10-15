@@ -7,7 +7,7 @@ public abstract class Magazine : MonoBehaviour
     public int level;
     public Ammo ammo { get; private set; }
 
-    protected WeaponData weaponData;
+    public WeaponData weaponData;
 
     public int currentAmmoNum { get; protected set; }
 

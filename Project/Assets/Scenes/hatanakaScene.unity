@@ -3776,6 +3776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d481fe62ad21ae4aad891eea708c4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScript: {fileID: 1366746971}
 --- !u!114 &1070082583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5931,7 +5932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4840952c4c60fd4ba4f77434f53e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 0}
+  playerScript: {fileID: 1366746971}
   slider: {fileID: 0}
 --- !u!114 &1431956554
 MonoBehaviour:

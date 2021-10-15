@@ -8,12 +8,13 @@ public partial class Player : MonoBehaviour , Interface
 
     // 武器
     private const int weaponCount = 2;
-    public class weaponInfo
+    public struct weaponInfo
     {
         public GameObject GOWeapon;
         public Weapon weaponScript;
-    }
+    };
     public weaponInfo[] weapon { get; private set; } = new weaponInfo[weaponCount];
+
     private int currentWeaponNum = 0;
     // 一時的
     public GameObject handgun;
@@ -27,9 +28,10 @@ public partial class Player : MonoBehaviour , Interface
 
     void Start()
     {
-        // 上で取得した場所に、"bullet"のPrefabを出現させる
         weapon[0].GOWeapon = Instantiate(handgun, transform.position, transform.rotation, transform.GetChild(0));
         weapon[1].GOWeapon = Instantiate(handgun, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[0].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
+        weapon[1].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
 
         weapon[1].GOWeapon.SetActive(false);
 

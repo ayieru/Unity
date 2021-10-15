@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIAmmo : MonoBehaviour
 {
-    Player playerScript;
+    public Player playerScript;
     Text ammoText;
 
     private int maxCapacity;

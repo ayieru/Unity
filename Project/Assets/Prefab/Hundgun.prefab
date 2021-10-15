@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  ammo: {fileID: 893738470922973628, guid: 2e564ff08a562ad4ca327f947bf1bac9, type: 3}
   weaponData: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
 --- !u!1 &2004623232965533313
 GameObject:

@@ -19,7 +19,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     public Magazine magazine; //{ get; protected set; }
 
-    protected float power;
+    protected float power = 10;
 
     void Awake()
     {

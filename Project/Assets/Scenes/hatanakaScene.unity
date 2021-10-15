@@ -5423,7 +5423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handgun: {fileID: 2004623232965533313, guid: 8665b7a40c1584d4696a2853f853efce, type: 3}
   cam: {fileID: 986926340}
-  walkSpeed: 1
+  walkSpeed: 5
   dashSpeedRate: 2
   jumpForce: 5
   localGravity: {x: 0, y: 0, z: 0}

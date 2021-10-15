@@ -56,8 +56,9 @@ public class UIManager : MonoBehaviour
                 default:
                     break;
             }
-            UpdareCursorLock();
         }
+
+        UpdareCursorLock();
     }
 
     //プレイヤー画面

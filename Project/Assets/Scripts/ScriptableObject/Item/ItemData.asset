@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee39315e3e5d6446a9c99e7ac45e4c8, type: 3}
+  m_Name: ItemData
+  m_EditorClassIdentifier: 
+  item:
+  - {fileID: 8064455843833475004, guid: c8fa8bd0f20571946bffcbbca0958c2b, type: 3}
+  - {fileID: 1329342604719924420, guid: b6e0f8964434cbe4987f7ebc422c4f97, type: 3}
+  - {fileID: 6243994679520701526, guid: 92c45508e67496c4b96ecccf1e6cbebf, type: 3}
+  - {fileID: 1696392454953865244, guid: 378bc6277b4f1684fb224ecf686652fa, type: 3}
+  - {fileID: 0}
+  image:
+  - {fileID: 21300000, guid: 98fc2626392b41d419d3cbebe7759d78, type: 3}
+  - {fileID: 21300000, guid: 1a74d5eddd7117e4a82ef8f0a466e529, type: 3}
+  - {fileID: 21300000, guid: 265c51c5df5b5c247b1cc54c5b03a466, type: 3}
+  - {fileID: 21300000, guid: 90fb3375461860f439c0754161ca44e9, type: 3}
+  - {fileID: 21300000, guid: c784a8c16b3d9144f866b3c90d8dca3b, type: 3}
+  itemname:
+  - "\u30D0\u30EA\u30B1\u30FC\u30C9"
+  - "\u677F"
+  - "\u5730\u96F7"
+  - "\u30BF\u30EC\u30C3\u30C8"
+  - "\u56DE\u5FA9\u85AC"
+  hp: 6400000064000000000000003200000000000000
+  cost: 1e000000140000003c0000003c0000001e000000
+  damage: 0000000000000000640000001e00000000000000
+  max: 0200000002000000020000000100000000000000
+  text:
+  - "\u6575\u306E\u4FB5\u653B\u3092\u963B\u6B62\u3059\u308B \u3069\u3053\u306B\u3067\u3082\u8A2D\u7F6E\u3067\u304D\u308B"
+  - "\u6575\u306E\u4FB5\u653B\u3092\u963B\u6B62\u3059\u308B \u30C9\u30A2\u3084\u7A93\u306E\u307F\u306B\u8A2D\u7F6E\u3067\u304D\u308B"
+  - "\u6575\u304C\u8FD1\u3065\u3044\u305F\u3089\u7206\u767A\u3059\u308B \u3069\u3053\u306B\u3067\u3082\u8A2D\u7F6E\u3067\u304D\u308B"
+  - "\u81EA\u52D5\u306B\u6575\u3092\u653B\u6483\u3059\u308B \u56FA\u5B9A\u4F4D\u7F6E\u306E\u307F\u306B\u8A2D\u7F6E\u3067\u304D\u308B"
+  - "HP\u3092\u5373\u5EA7\u306B\u5168\u56DE\u5FA9\u3059\u308B \u30AF\u30FC\u30EB\u30BF\u30A4\u30E030\u79D2"
+  add:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

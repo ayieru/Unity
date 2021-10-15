@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8858fbed403a6794fb358138b1920df0, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  enemy:
+  - {fileID: 5692449437070102927, guid: b7b9dec1233b87b4686e833190c5d8d9, type: 3}
+  - {fileID: 5692449437070102927, guid: b7b9dec1233b87b4686e833190c5d8d9, type: 3}
+  - {fileID: 5692449437070102927, guid: b7b9dec1233b87b4686e833190c5d8d9, type: 3}
+  - {fileID: 5692449437070102927, guid: b7b9dec1233b87b4686e833190c5d8d9, type: 3}
+  - {fileID: 5692449437070102927, guid: b7b9dec1233b87b4686e833190c5d8d9, type: 3}
+  hp: 64000000500000003c0000009600000078000000
+  speed:
+  - 1
+  - 0.8
+  - 1.2
+  - 0.8
+  - 1
+  damage: 1400000019000000140000002300000032000000
+  point: 0a0000000f000000140000001e00000032000000
+  add:
+  - 0
+  - 0
+  - 0
+  - 105
+  - 0

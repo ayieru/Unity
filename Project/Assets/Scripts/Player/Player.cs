@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Player : MonoBehaviour , Interface 
+public partial class Player : MonoBehaviour , IReceiveDamage
 {
     GameObject GOPlayerCamera;
 
@@ -47,7 +47,7 @@ public partial class Player : MonoBehaviour , Interface
         MovementUpdate();
         CameraUpdate();
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }

@@ -14,8 +14,8 @@ public partial class Player
     [SerializeField] float jumpForce;
     bool isGround = false;
 
-    float groundDrag = 6f;
-    float airDrag = 2f;
+    float groundDrag = 2f;
+    float airDrag = 6f;
 
     public Vector3 localGravity;
 
@@ -54,25 +54,23 @@ public partial class Player
         else
         {
             isGround = false;
-            Debug.Log(isGround);
         }
 
         float currentSpeed = walkSpeed * dashRate;
         Vector3 forward = cam.transform.forward;
         Vector3 right = cam.transform.right;
-        Vector3 up = transform.up; 
         forward.y = 0f;
         right.y = 0f;
         
-        forward = Input.GetAxisRaw("Vertical") * forward * currentSpeed;
-        right = Input.GetAxisRaw("Horizontal") * right * currentSpeed;
+        forward = Input.GetAxisRaw("Vertical") * forward;
+        right = Input.GetAxisRaw("Horizontal") * right;
 
-        //ControlDrag();
+        ControlDrag();
         Jump();
         velocity = forward + right;
-        Debug.Log(rb.velocity);
-        //rb.AddForce(velocity.normalized, ForceMode.Impulse);
-        transform.position += velocity.normalized;
+        //transform.position += velocity.normalized;
+        rb.AddForce(velocity.normalized * currentSpeed, ForceMode.Acceleration);
+        Debug.Log(isGround);
     }
 
     void Jump()

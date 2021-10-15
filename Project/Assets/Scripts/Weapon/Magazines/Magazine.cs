@@ -5,12 +5,17 @@ using UnityEngine;
 public abstract class Magazine : MonoBehaviour
 {
     public int level;
-    public Ammo ammo { get; private set; }
+    [SerializeField]
+    public Ammo ammo;
 
     public WeaponData weaponData;
 
     public int currentAmmoNum { get; protected set; }
 
+    void Awake()
+    {
+        
+    }
     void Start()
     {
         currentAmmoNum = weaponData.ammo[level];

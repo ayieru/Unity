@@ -2,28 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Handgun : Weapon
+public class HandgunMagazine : Magazine
 {
     // Start is called before the first frame update
     void Awake()
     {
-        
+        currentAmmoNum = weaponData.ammo[0];
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
-
-    public override void Reload()
+    
+    public override void LoadMagazine()
     {
-
+        currentAmmoNum = weaponData.ammo[level];
     }
-
-    public override void Shoot()
-    {
-
-    }
-
 }

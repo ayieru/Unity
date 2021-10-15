@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Player : MonoBehaviour , Interface 
+public partial class Player : MonoBehaviour , IReceiveDamage
 {
     GameObject GOPlayerCamera;
 

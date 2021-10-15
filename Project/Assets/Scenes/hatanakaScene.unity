@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -614,6 +614,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &154991420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +959,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &175604456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,6 +2092,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &485250711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2802,6 +2808,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &733365340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2948,6 +2956,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &736118239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4723,6 +4733,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &1232290271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5413,7 +5425,7 @@ MonoBehaviour:
   cam: {fileID: 986926340}
   walkSpeed: 1
   dashSpeedRate: 2
-  jumpForce: 1
+  jumpForce: 5
   localGravity: {x: 0, y: 0, z: 0}
 --- !u!136 &1366746972
 CapsuleCollider:
@@ -6979,6 +6991,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &1903777682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7571,6 +7585,8 @@ MonoBehaviour:
   P_Update: {fileID: 1430946109}
   preData: {fileID: 811120933}
   updateData: {fileID: 573882127}
+  text: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &2031709696
 MonoBehaviour:
   m_ObjectHideFlags: 0

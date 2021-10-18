@@ -5421,7 +5421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aabf3fbdf4855409f8c3e495096120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handgun: {fileID: 2004623232965533313, guid: 8665b7a40c1584d4696a2853f853efce, type: 3}
+  h: {fileID: 0}
+  s: {fileID: 0}
+  a: {fileID: 0}
+  r: {fileID: 0}
+  handgun: {fileID: 2004623232965533313, guid: b4c9010d1e230fa4f8e6a042ead20dad, type: 3}
   barricade: {fileID: 8064455843833475004, guid: c8fa8bd0f20571946bffcbbca0958c2b,
     type: 3}
   board: {fileID: 1329342604719924420, guid: b6e0f8964434cbe4987f7ebc422c4f97, type: 3}

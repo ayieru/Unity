@@ -11,8 +11,9 @@ public class Item : MonoBehaviour
         
     }
 
-    public void Install(Vector3 position)
+    public void Install()
     {
-        transform.position = position;
+        transform.parent = null;
+        this.gameObject.AddComponent<Rigidbody>();
     }
 }

@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public partial class Player
 {
     Rigidbody rb;
 
-    //ç§»å‹•é€Ÿåº¦é–¢ä¿‚
+    //ˆÚ“®î•ñ
     Vector3 velocity;
     Vector3 accelation;
     [SerializeField] float walkSpeed;

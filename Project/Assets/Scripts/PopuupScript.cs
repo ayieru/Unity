@@ -1,16 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic; using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;//UnityのUI（buttonなどの機能）を使用するおまじない
 
 
-public class PopupScript : MonoBehaviour
+public class PopuupScript : MonoBehaviour
 {
     public GameObject Popup;//Popupというゲームオブジェクトを宣言する
 
     // Use this for initialization
     void Start()
     {
-     }
+
+    }
 
     // Update is called once per frame
     void Update()

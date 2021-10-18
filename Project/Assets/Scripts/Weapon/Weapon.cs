@@ -10,6 +10,11 @@ public abstract class Weapon : MonoBehaviour
     {
         this.level = level;
     }
+    public void UPLevel()
+    {
+        this.level++;
+        Debug.Log(level);
+    }
 
     protected float damage;
 

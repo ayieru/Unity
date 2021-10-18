@@ -70,7 +70,7 @@ public partial class Player
         velocity = forward + right;
         //transform.position += velocity.normalized;
         rb.AddForce(velocity.normalized * currentSpeed, ForceMode.Acceleration);
-        Debug.Log(isGround);
+        //Debug.Log(isGround);
     }
 
     void Jump()

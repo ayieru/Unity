@@ -19,6 +19,13 @@ public class Ammo : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        other.gameObject.GetComponent<EnemyAI>().ReceiveDamage(power);
+        var p = other.gameObject.GetComponent<IReceiveDamage>();
+
+        if (p != null)
+        {
+            p.ReceiveDamage(power);
+        }
+
+        Destroy(gameObject);
     }
 }

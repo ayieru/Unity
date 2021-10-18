@@ -15,6 +15,11 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     Mode mode = Mode.Weapon;
 
+    public WeaponData h;
+    public WeaponData s;
+    public WeaponData a;
+    public WeaponData r;
+
     // 武器
     private const int weaponCount = 2;
     public struct WeaponInfo
@@ -170,6 +175,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         item[currentItemNum].GO.SetActive(true);
     }
 
+
     void SwitchItemsAndWeapon()
     {
         switch(mode)
@@ -199,5 +205,34 @@ public partial class Player : MonoBehaviour , IReceiveDamage
             default:
                 break;
         }
+
+    public void H()
+    {
+        Destroy(weapon[0].GOWeapon);
+        Destroy(weapon[0].weaponScript);
+        weapon[0].GOWeapon = Instantiate(h.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[0].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
+    }
+
+    public void S()
+    {
+        Destroy(weapon[0].GOWeapon);
+        Destroy(weapon[0].weaponScript);
+        weapon[0].GOWeapon = Instantiate(s.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[0].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
+    }
+    public void A()
+    {
+        Destroy(weapon[0].GOWeapon);
+        Destroy(weapon[0].weaponScript);
+        weapon[0].GOWeapon = Instantiate(a.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[0].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
+    }
+    public void R()
+    {
+        Destroy(weapon[0].GOWeapon);
+        Destroy(weapon[0].weaponScript);
+        weapon[0].GOWeapon = Instantiate(r.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[0].weaponScript = weapon[0].GOWeapon.GetComponent<Weapon>();
     }
 }

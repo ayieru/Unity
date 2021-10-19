@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Player : MonoBehaviour , IReceiveDamage
 {
     GameObject GOPlayerCamera;
-    // ƒ‚[ƒh
+    // ãƒ¢ãƒ¼ãƒ‰
     enum Mode
     {
         Weapon,
@@ -20,7 +20,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public WeaponData assaltLifle;
     public WeaponData roketLancher;
 
-    // •Ší
+    // æ­¦å™¨
     private const int weaponCount = 2;
     public class WeaponInfo
     {
@@ -30,7 +30,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public List<WeaponInfo> weapon { get; private set; } = new List<WeaponInfo>();
     private int currentWeaponNum = 0;
 
-    // ƒAƒCƒeƒ€
+    // ã‚¢ã‚¤ãƒ†ãƒ 
     public class ItemInfo
     {
         public GameObject GO;
@@ -44,7 +44,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public GameObject landmine;
     public GameObject turret;
 
-    // ‘Ì—Í
+    // ä½“åŠ›
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
 
@@ -73,8 +73,10 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         });
 
         weapon[1].GO.SetActive(false);
+        weapon[2].GO.SetActive(false);
+        weapon[3].GO.SetActive(false);
 
-        // ƒAƒCƒeƒ€
+        // ã‚¢ã‚¤ãƒ†ãƒ 
         position = transform.GetChild(0).position + barricade.transform.position;
         tmpGO =  Instantiate(barricade, position, transform.rotation, this.transform);
         item.Add(new ItemInfo{
@@ -126,7 +128,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
             SwitchItemsAndWeapon();
             Debug.Log(mode);
         }
-        // Ø‚è‘Ö‚¦
+        // åˆ‡ã‚Šæ›¿ãˆ
         if(0 < Input.GetAxis("Mouse ScrollWheel"))
         {
             switch (mode)

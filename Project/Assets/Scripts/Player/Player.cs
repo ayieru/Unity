@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Player : MonoBehaviour , IReceiveDamage
 {
     GameObject GOPlayerCamera;
-    // モード
+    // モーチE
     enum Mode
     {
         Weapon,
@@ -30,7 +30,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public List<WeaponInfo> weapon { get; private set; } = new List<WeaponInfo>();
     private int currentWeaponNum = 0;
 
-    // アイテム
+    // アイチE��
     public class ItemInfo
     {
         public GameObject GO;
@@ -73,10 +73,8 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         });
 
         weapon[1].GO.SetActive(false);
-        weapon[2].GO.SetActive(false);
-        weapon[3].GO.SetActive(false);
 
-        // アイテム
+        // アイチE��
         position = transform.GetChild(0).position + barricade.transform.position;
         tmpGO =  Instantiate(barricade, position, transform.rotation, this.transform);
         item.Add(new ItemInfo{
@@ -128,7 +126,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
             SwitchItemsAndWeapon();
             Debug.Log(mode);
         }
-        // 切り替え
+        // 刁E��替ぁE
         if(0 < Input.GetAxis("Mouse ScrollWheel"))
         {
             switch (mode)

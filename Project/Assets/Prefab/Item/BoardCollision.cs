@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class BoardCollision : MonoBehaviour
 {
     public GameObject Board;
 

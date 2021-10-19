@@ -17,23 +17,8 @@ public class Ammo : MonoBehaviour
         
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("aaaaa");
-    //    var p = other.gameObject.GetComponent<IReceiveDamage>();
-
-    //    if (p != null)
-    //    {
-    //        p.ReceiveDamage(power);
-    //    }
-
-    //    Destroy(gameObject);
-    //}
-
-
     void OnCollisionEnter(UnityEngine.Collision other)
     {
-        Debug.Log("aaaaa");
         var p = other.gameObject.GetComponent<IReceiveDamage>();
 
         if (p != null)

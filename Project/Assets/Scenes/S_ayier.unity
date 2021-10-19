@@ -4034,7 +4034,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617452721
 GameObject:
@@ -12155,11 +12155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aabf3fbdf4855409f8c3e495096120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  h: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
-  s: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
-  a: {fileID: 11400000, guid: 9c5ef37c68576fe429d653f849647b22, type: 2}
-  r: {fileID: 11400000, guid: 34f781b8e80bcea4ea37250200c76def, type: 2}
-  handgun: {fileID: 2004623232965533313, guid: 8665b7a40c1584d4696a2853f853efce, type: 3}
+  handgun: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
+  shotgun: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
+  assaltLifle: {fileID: 11400000, guid: 9c5ef37c68576fe429d653f849647b22, type: 2}
+  roketLancher: {fileID: 11400000, guid: 34f781b8e80bcea4ea37250200c76def, type: 2}
   barricade: {fileID: 8064455843833475004, guid: c8fa8bd0f20571946bffcbbca0958c2b,
     type: 3}
   board: {fileID: 1329342604719924420, guid: b6e0f8964434cbe4987f7ebc422c4f97, type: 3}
@@ -12261,7 +12260,7 @@ Transform:
   m_Children:
   - {fileID: 1216585980}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1845726523
 GameObject:

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575b1174a11a37b4e96440eead10f85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDistance: 0
+  targetDistance: 10
   gizmoSize: 0.3
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &-1453796778344258608

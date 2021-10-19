@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board : MonoBehaviour
+public class Collision : MonoBehaviour
 {
+    public GameObject Board;
+
     private void Start()
     {
-        transform.parent.gameObject.SetActive(false);
+        Board.SetActive(false);
     }
+
     void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            transform.parent.gameObject.SetActive(true);
-            Debug.Log("enter");
+            Board.SetActive(true);
         }
-        Debug.Log("enter");
     }
 }

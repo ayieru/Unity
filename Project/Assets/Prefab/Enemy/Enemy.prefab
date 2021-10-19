@@ -95,9 +95,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.3, z: 0}
 --- !u!114 &3081721505790007580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d410fa4c82320014284c4180df8d9257, type: 2}
+  hp: 0
+  speed: 0
+  damage: 0
+  point: 0
 --- !u!195 &3058558806198590815
 NavMeshAgent:
   m_ObjectHideFlags: 0

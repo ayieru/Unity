@@ -21,7 +21,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public WeaponData r;
 
     // ïêäÌ
-    private const int weaponCount = 2;
+    private const int weaponCount = 4;
     public struct WeaponInfo
     {
         public GameObject GO;
@@ -29,7 +29,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     };
     public WeaponInfo[] weapon { get; private set; } = new WeaponInfo[weaponCount];
     private int currentWeaponNum = 0;
-    // 
+
     public GameObject handgun;
 
     // ÉAÉCÉeÉÄ
@@ -56,12 +56,19 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     void Start()
     {
         Vector3 position = transform.GetChild(0).position + handgun.transform.position;
-        weapon[0].GO = Instantiate(handgun, position, handgun.transform.rotation, transform.GetChild(0));
-        weapon[1].GO = Instantiate(handgun, position, handgun.transform.rotation, transform.GetChild(0));
+        weapon[0].GO = Instantiate(h.weapon, position, h.weapon.transform.rotation, transform.GetChild(0));
+        weapon[1].GO = Instantiate(s.weapon, position, s.weapon.transform.rotation, transform.GetChild(0));
+        weapon[2].GO = Instantiate(a.weapon, position, a.weapon.transform.rotation, transform.GetChild(0));
+        weapon[3].GO = Instantiate(r.weapon, position, r.weapon.transform.rotation, transform.GetChild(0));
+
         weapon[0].script = weapon[0].GO.GetComponent<Weapon>();
         weapon[1].script = weapon[1].GO.GetComponent<Weapon>();
+        weapon[2].script = weapon[2].GO.GetComponent<Weapon>();
+        weapon[3].script = weapon[3].GO.GetComponent<Weapon>();
 
         weapon[1].GO.SetActive(false);
+        weapon[2].GO.SetActive(false);
+        weapon[3].GO.SetActive(false);
 
         position = this.transform.position + barricade.transform.position;
         item[0].GO = Instantiate(barricade, position, transform.rotation, this.transform);

@@ -12,13 +12,9 @@ public abstract class Magazine : MonoBehaviour
 
     public int currentAmmoNum { get; protected set; }
 
-    void Awake()
-    {
-        
-    }
     void Start()
     {
-        currentAmmoNum = weaponData.ammo[level];
+
     }
 
     void Update()
@@ -26,7 +22,10 @@ public abstract class Magazine : MonoBehaviour
 
     }
 
-    public abstract void LoadMagazine();
+    public void LoadMagazine()
+    {
+        currentAmmoNum = weaponData.ammo[level];
+    }
 
     public bool LoadGun()
     {

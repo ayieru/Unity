@@ -26,6 +26,10 @@ public abstract class Weapon : MonoBehaviour
 
     protected float power = 50;
 
+    protected bool shootFlag = true;
+    protected float shootElapsedTime = 0;
+    protected float shootRate = 1f;
+
     void Awake()
     {
         magazine.level = level;

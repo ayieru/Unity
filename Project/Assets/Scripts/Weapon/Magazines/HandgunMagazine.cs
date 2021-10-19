@@ -7,16 +7,11 @@ public class HandgunMagazine : Magazine
     // Start is called before the first frame update
     void Awake()
     {
-        currentAmmoNum = weaponData.ammo[0];
+        currentAmmoNum = weaponData.ammo[level];
     }
 
     void Update()
     {
-        
-    }
-    
-    public override void LoadMagazine()
-    {
-        currentAmmoNum = weaponData.ammo[level];
+
     }
 }

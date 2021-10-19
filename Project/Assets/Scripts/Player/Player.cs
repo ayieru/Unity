@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Player : MonoBehaviour , IReceiveDamage
 {
     GameObject GOPlayerCamera;
-    // ÉÇÅ[Éh
+    // „É¢„Éº„Éâ
     enum Mode
     {
         Weapon,
@@ -15,38 +15,36 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     Mode mode = Mode.Weapon;
 
-    public WeaponData h;
-    public WeaponData s;
-    public WeaponData a;
-    public WeaponData r;
+    public WeaponData handgun;
+    public WeaponData shotgun;
+    public WeaponData assaltLifle;
+    public WeaponData roketLancher;
 
-    // ïêäÌ
-    private const int weaponCount = 4;
-    public struct WeaponInfo
+    // Ê≠¶Âô®
+    private const int weaponCount = 2;
+    public class WeaponInfo
     {
         public GameObject GO;
         public Weapon script;
     };
-    public WeaponInfo[] weapon { get; private set; } = new WeaponInfo[weaponCount];
+    public List<WeaponInfo> weapon { get; private set; } = new List<WeaponInfo>();
     private int currentWeaponNum = 0;
 
-    public GameObject handgun;
-
-    // ÉAÉCÉeÉÄ
-    public struct ItemInfo
+    // „Ç¢„Ç§„ÉÜ„É†
+    public class ItemInfo
     {
         public GameObject GO;
         public Item script;
     };
     const int itemCount = 4;
     int currentItemNum = 0;
-    ItemInfo[] item = new ItemInfo[itemCount];
+    List<ItemInfo> item = new List<ItemInfo>();
     public GameObject barricade;
     public GameObject board;
     public GameObject landmine;
     public GameObject turret;
 
-    // ëÃóÕ
+    // ‰ΩìÂäõ
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
 
@@ -55,33 +53,58 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     void Start()
     {
-        Vector3 position = transform.GetChild(0).position + handgun.transform.position;
-        weapon[0].GO = Instantiate(h.weapon, position, h.weapon.transform.rotation, transform.GetChild(0));
-        weapon[1].GO = Instantiate(s.weapon, position, s.weapon.transform.rotation, transform.GetChild(0));
-        weapon[2].GO = Instantiate(a.weapon, position, a.weapon.transform.rotation, transform.GetChild(0));
-        weapon[3].GO = Instantiate(r.weapon, position, r.weapon.transform.rotation, transform.GetChild(0));
+        Vector3 position;
+        WeaponInfo tmpWeapon = new WeaponInfo();
+        ItemInfo tmpItem = new ItemInfo();
 
-        weapon[0].script = weapon[0].GO.GetComponent<Weapon>();
-        weapon[1].script = weapon[1].GO.GetComponent<Weapon>();
-        weapon[2].script = weapon[2].GO.GetComponent<Weapon>();
-        weapon[3].script = weapon[3].GO.GetComponent<Weapon>();
+        position = transform.GetChild(0).position + handgun.weapon.transform.position;
+        GameObject tmpGO =  Instantiate(handgun.weapon, position, handgun.weapon.transform.rotation, transform.GetChild(0));
+        weapon.Add(new WeaponInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Weapon>()
+        });
+        Debug.Log(weapon[0].GO);
+
+        position = transform.GetChild(0).position + shotgun.weapon.transform.position;
+        tmpGO =  Instantiate(shotgun.weapon, position, shotgun.weapon.transform.rotation, transform.GetChild(0));
+        weapon.Add(new WeaponInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Weapon>()
+        });
 
         weapon[1].GO.SetActive(false);
         weapon[2].GO.SetActive(false);
         weapon[3].GO.SetActive(false);
 
-        position = this.transform.position + barricade.transform.position;
-        item[0].GO = Instantiate(barricade, position, transform.rotation, this.transform);
+        // „Ç¢„Ç§„ÉÜ„É†
+        position = transform.GetChild(0).position + barricade.transform.position;
+        tmpGO =  Instantiate(barricade, position, transform.rotation, this.transform);
+        item.Add(new ItemInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Item>()
+        });
+
         position = this.transform.position + board.transform.position;
-        item[1].GO = Instantiate(board, position, transform.rotation, this.transform);
+        tmpGO =  Instantiate(board, position, transform.rotation, this.transform);
+        item.Add(new ItemInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Item>()
+        });
+
         position = this.transform.position + landmine.transform.position;
-        item[2].GO = Instantiate(landmine, position, transform.rotation, this.transform);
+        tmpGO =  Instantiate(landmine, position, transform.rotation, this.transform);
+        item.Add(new ItemInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Item>()
+        });
+
         position = this.transform.position + turret.transform.position;
-        item[3].GO = Instantiate(turret, position, transform.rotation, this.transform);
-        item[0].script = item[0].GO.GetComponent<Item>();
-        item[1].script = item[1].GO.GetComponent<Item>();
-        item[2].script = item[2].GO.GetComponent<Item>();
-        item[3].script = item[3].GO.GetComponent<Item>();
+        tmpGO =  Instantiate(turret, position, transform.rotation, this.transform);
+        item.Add(new ItemInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Item>()
+        });
+
         item[0].GO.SetActive(false);
         item[1].GO.SetActive(false);
         item[2].GO.SetActive(false);
@@ -105,7 +128,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
             SwitchItemsAndWeapon();
             Debug.Log(mode);
         }
-        // êÿÇËë÷Ç¶
+        // Âàá„ÇäÊõø„Åà
         if(0 < Input.GetAxis("Mouse ScrollWheel"))
         {
             switch (mode)

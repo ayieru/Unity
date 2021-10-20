@@ -77,23 +77,38 @@ using UnityEngine.SceneManagement;
 
 public class StageLiberation : MonoBehaviour
 {
-    private int stageNumber; //ステージ開放条件の値を格納
-
     //ステージ1はゲームスタート時に解放されているのでstage2から
     public GameObject stage2;
     public GameObject stage3;
     public GameObject stage4;
     public GameObject stage5;
 
+    static bool once = false;
+
+    void Onlyonce()
+    {
+        if(!once)
+        {
+            PlayerPrefs.SetInt("stageNumber", 1);
+            PlayerPrefs.Save();
+
+            once = true;
+        }
+
+    }
 
     void Start()
     {
-        stageNumber = PlayerPrefs.GetInt("stageNumber");
+        Onlyonce();
     }
 
 
     void Update()
     {
+        int stageNumber = PlayerPrefs.GetInt("stageNumber");
+
+        Debug.Log(PlayerPrefs.GetInt("stageNumber"));
+
         if (stageNumber >= 2)
         {
             stage2.SetActive(true);

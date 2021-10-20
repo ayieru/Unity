@@ -29,10 +29,13 @@ public class LiberationScript : MonoBehaviour
 
     //    }
     //}
-    private int stageNum;
-    public void StageOpen()
+
+    public void StageOpen(int stageNum)
     {
         PlayerPrefs.SetInt("stageNumber", stageNum);//PlayerPrefsでクリアしたステージ番号をセット
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("StageSelect");
     }
 
     //public void push()

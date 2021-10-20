@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour,IReceiveDamage
+public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
 {
     private NavMeshAgent agent;
 
@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour,IReceiveDamage
     public int hp;
     public float speed;
     public int damage;
-    public int point;
+    private int point;
     private int t = 0;
 
     void Start()
@@ -39,18 +39,26 @@ public class EnemyAI : MonoBehaviour,IReceiveDamage
 
     }
 
-    public void ReceiveDamage(int Pdamage)
+    public bool ReceiveDamage(int Pdamage)
     {
+        bool deadFlag = false; 
         hp -= Pdamage;
         if (hp <= 0) 
         {
             hp = 0;
             Destroy(gameObject);
+            deadFlag = true;
         }
 
         Debug.Log("Enemy は " + Pdamage + "ダメージ食らった\n残りHP " + hp);
 
         t = Pdamage;
+        return deadFlag;
+    }
+
+    public int GetPoints()
+    {
+        return point;
     }
 
     public void SetNum(int num)

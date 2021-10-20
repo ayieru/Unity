@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IReceiveDamage
 {
-    void ReceiveDamage(int Pdamage);
+    bool ReceiveDamage(int Pdamage);
 }

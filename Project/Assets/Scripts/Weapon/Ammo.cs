@@ -28,4 +28,9 @@ public class Ammo : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void SetPower(int sPower)
+    {
+        power = sPower;
+    }
 }

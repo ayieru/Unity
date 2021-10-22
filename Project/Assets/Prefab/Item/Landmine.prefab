@@ -232,9 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 50
-  radius: 10
+  radius: 3
   ex: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
-  sound: {fileID: 8300000, guid: a17dacc6ec0434246a724bebfb5642f5, type: 3}
 --- !u!54 &7067371228819742774
 Rigidbody:
   m_ObjectHideFlags: 0

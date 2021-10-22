@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     private EnemyAiState nextState;
 
     public EnemyData data;
+    public GameObject add;
 
     private NavMeshAgent agent;
     private GameObject p;
@@ -27,6 +28,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     private int type;
     private float t = 0.3f;
     private bool search = false;
+    private float NEAR_DIR = 20f;
 
     void Start()
     {
@@ -46,6 +48,10 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
                 InvokeRepeating(nameof(UpdateAI), 0f, t);
                 break;
         }
+    }
+    private void Update()
+    {
+
     }
 
     public bool ReceiveDamage(int Pdamage)
@@ -76,7 +82,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         damage = data.damage[num];
         point = data.point[num];
 
-        //１と３の場合は別AI
+        //1と3の場合は別AI
         type = num;
     }
 
@@ -97,6 +103,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     {
         AiMainRoutine();
         aiState = nextState;
+
     }
 
     private void AiMainRoutine()
@@ -143,10 +150,10 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         switch (aiState)
         {
             case EnemyAiState.MOVE:
-                UpdateNav();
+                UpdateNav_01();
                 break;
             case EnemyAiState.ATTACK:
-                Attack_01();
+                Attack();
                 break;
             case EnemyAiState.IDLE:
                 Idle();
@@ -177,6 +184,19 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     private void UpdateNav_03()
     {
         agent.SetDestination(p.transform.position);
+        damage = (int)data.damage[type];
+
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Item");
+        foreach (GameObject obj in targets)
+        {
+            float dir = Vector3.Distance(obj.transform.position, transform.position);
+            if (dir < NEAR_DIR)
+            {
+                agent.SetDestination(obj.transform.position);
+                damage = (int)data.add[type];
+                break;
+            }
+        }
     }
 
     private void Idle()
@@ -199,9 +219,21 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         }
     }
 
-    private void Attack_01()
+    private void UpdateNav_01()
     {
-
+        float dir = Vector3.Distance(p.transform.position, transform.position);
+        if (dir < 15)
+        {
+            agent.SetDestination(transform.position);
+            GameObject t = transform.Find("target").gameObject;
+            Instantiate(add, t.transform.position, transform.rotation);
+            add.GetComponent<rock>().SetTarget(p.transform.position);
+        }
+        else
+        {
+            agent.SetDestination(p.transform.position);
+            search = false;
+        }
     }
 
     private void OnTriggerStay(Collider collider)

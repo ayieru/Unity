@@ -23,7 +23,7 @@ public class Board : MonoBehaviour,IReceiveDamage
             deadFlag = true;
         }
 
-        Debug.Log("Barricade は " + Pdamage + "ダメージ食らった\n残りHP " + hp);
+        Debug.Log("Board は " + Pdamage + "ダメージ食らった\n残りHP " + hp);
 
         return deadFlag;
     }

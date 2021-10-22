@@ -13,7 +13,7 @@ public class Turret : MonoBehaviour ,IReceiveDamage
     }
 
     public GameObject ammo;
-    public float NEAR_DIR = 0;
+    public float NEAR_DIR;
     public AudioClip sound;
     public ItemData turret;
 
@@ -78,6 +78,7 @@ public class Turret : MonoBehaviour ,IReceiveDamage
             {
                 search = true;
                 p = obj;
+                break;
             }
         }
     }

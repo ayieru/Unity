@@ -14,11 +14,12 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     }
 
     Mode mode = Mode.Weapon;
-
+    // Data
     public WeaponData handgun;
     public WeaponData shotgun;
     public WeaponData assaultRifle;
     public WeaponData roketLancher;
+    public ItemData itemData;
 
     // 武器
     private const int weaponCount = 2;
@@ -28,28 +29,56 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         public Weapon script;
     };
     public List<WeaponInfo> weapon { get; private set; } = new List<WeaponInfo>();
-    private int currentWeaponNum = 0;
+    public int currentWeaponNum { get; private set; } = 0;
 
     // アイテム
+    public enum EItem
+    {
+        Barricade,
+        Board,
+        Landmine,
+        Turret,
+        Max
+    }
     public class ItemInfo
     {
-        public GameObject GO;
+        public GameObject GO = null;
         public Item script;
-    };
-    const int itemCount = 4;
-    int currentItemNum = 0;
+        public int maxNum;
+        public int currentNum;
+    }
+
+    public EItem currentItemAttr { get; private set; } = EItem.Barricade;
     List<ItemInfo> item = new List<ItemInfo>();
-    public GameObject barricade;
-    public GameObject board;
-    public GameObject landmine;
-    public GameObject turret;
+    public GameObject GOBarricade;
+    public GameObject GOBoard;
+    public GameObject GOLandmine;
+    public GameObject GOTurret;
 
     // 体力
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
 
     // ポイント
-    int points = 0;
+    public int points { get; private set; } = 100;
+
+    // Get
+    public int GetWeaponAmmoNum()
+    {
+        return weapon[currentWeaponNum].script.magazine.currentAmmoNum;
+    }
+    public int GetItemCurrentNum(EItem itemAttr)
+    {
+        return item[(int)itemAttr].currentNum;
+    }
+    public int GetItemMaxNum(EItem itemAttr)
+    {
+        return item[(int)itemAttr].maxNum;
+    }
+    public int GetItemCurrentNum()
+    {
+        return item[(int)currentItemAttr].currentNum;
+    }
 
     void Start()
     {
@@ -63,6 +92,17 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         CameraStart();
     }
 
+    // 0クランプ
+    int ZeroClampNum(int num, bool increace)
+    {
+        if(increace){
+            num++;
+        }
+        else{
+            num--;
+        }
+        return Mathf.Clamp(num, 0, sizeof(int));
+    }
     void Update()
     {
         MovementUpdate();
@@ -97,7 +137,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
                 {
                     Shoot();
                 }
-                if(Input.GetKeyDown(KeyCode.R))
+                if(Input.GetKeyDown(KeyCode.R) || weapon[currentWeaponNum].script.magazine.currentAmmoNum == 0)
                 {
                     Reload();
                 }
@@ -133,17 +173,33 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         reloadFlag = true;
     }
 
+    //void Searchhave
     void Install()
     {
-        item[currentItemNum].script.Install();
-        item[currentItemNum].GO = null;
-        item[currentItemNum].script = null;
-        currentItemNum++;
-        if(currentItemNum >= itemCount)
+        item[(int)currentItemAttr].script.Install();
+        item[(int)currentItemAttr].currentNum = ZeroClampNum(item[(int)currentItemAttr].currentNum, false);
+        int tmpNum = item[(int)currentItemAttr].currentNum;
+        ItemInstantiate(currentItemAttr);
+        item[(int)currentItemAttr].currentNum = tmpNum;
+        if(item[(int)currentItemAttr].currentNum <= 0)
         {
-            currentItemNum = 0;
+            currentItemAttr++;
+            if(currentItemAttr >= EItem.Max)
+            {
+                currentItemAttr = EItem.Barricade;
+            }
+            if(item[(int)currentItemAttr].currentNum > 0)
+            {
+                item[(int)currentItemAttr].GO.SetActive(true);
+            }
         }
-        item[currentItemNum].GO.SetActive(true);
+        else
+        {
+            if(item[(int)currentItemAttr].currentNum > 0)
+            {
+                item[(int)currentItemAttr].GO.SetActive(true);
+            }
+        }
     }
 
     void SwitchWeapon()
@@ -159,13 +215,13 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     void SwitchItem()
     {
-        item[currentItemNum].GO.SetActive(false);
-        currentItemNum++;
-        if(currentItemNum >= itemCount)
+        item[(int)currentItemAttr].GO.SetActive(false);
+        currentItemAttr++;
+        if(currentItemAttr >= EItem.Max)
         {
-            currentItemNum = 0;
+            currentItemAttr = EItem.Barricade;
         }
-        item[currentItemNum].GO.SetActive(true);
+        item[(int)currentItemAttr].GO.SetActive(true);
     }
 
 
@@ -177,7 +233,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
                 weapon[currentWeaponNum].GO.SetActive(false);
                 break;
             case Mode.Item:
-                item[currentItemNum].GO.SetActive(false);
+                item[(int)currentItemAttr].GO.SetActive(false);
                 break;
             default:
                 break;
@@ -193,7 +249,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
                 weapon[currentWeaponNum].GO.SetActive(true);
                 break;
             case Mode.Item:
-                item[currentItemNum].GO.SetActive(true);
+                item[(int)currentItemAttr].GO.SetActive(true);
                 break;
             default:
                 break;
@@ -203,31 +259,5 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public void AddPoints(int points)
     {
         this.points += points;
-    }
-
-    public void Handgun()
-    {
-        Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(handgun.weapon, transform.position, transform.rotation, transform.GetChild(0));
-        weapon[currentWeaponNum].script = weapon[0].GO.GetComponent<Weapon>();
-    }
-
-    public void Shotgun()
-    {
-        Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(shotgun.weapon, transform.position, transform.rotation, transform.GetChild(0));
-        weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
-    }
-    public void AssaultRifle()
-    {
-        Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(assaultRifle.weapon, transform.position, transform.rotation, transform.GetChild(0));
-        weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
-    }
-    public void RoketLancher()
-    {
-        Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(roketLancher.weapon, transform.position, transform.rotation, transform.GetChild(0));
-        weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
     }
 }

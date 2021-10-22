@@ -19,7 +19,7 @@ public class UIAmmo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string text = "Ammo  " + playerScript.weapon[0].script.magazine.currentAmmoNum.ToString().PadRight(2) + "/" + " ∞ ";
+        string text = playerScript.GetWeaponAmmoNum().ToString().PadRight(2) + "  / " + "∞";
                         
         ammoText.text = text;
     }

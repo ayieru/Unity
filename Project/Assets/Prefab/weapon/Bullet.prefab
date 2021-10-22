@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 30
   headpower: 0
+  playerScript: {fileID: 0}

@@ -45,7 +45,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 if (spawntime[i] == t)
                 {
-                    GameObject enemy = Instantiate(enemyData.enemy[enemyNum[i]]);
+                    GameObject enemy = Instantiate(enemyData.enemy[enemyNum[i] - 1]);
                     enemy.GetComponent<EnemyAI>().SetNum(enemyNum[i] - 1);
                     enemy.transform.position = this.gameObject.transform.position;
                     enemy.transform.rotation = this.gameObject.transform.rotation;

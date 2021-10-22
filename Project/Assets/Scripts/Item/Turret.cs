@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour ,IReceiveDamage
 {
     private enum TurretAiState
     {
@@ -15,24 +13,22 @@ public class Turret : MonoBehaviour
     }
 
     public GameObject ammo;
-    public float NEAR_DIR = 0;
+    public float NEAR_DIR;
     public AudioClip sound;
+    public ItemData turret;
 
     private GameObject p;
     private TurretAiState aiState = TurretAiState.IDLE;
     private TurretAiState nextState;
     private AudioSource audioSource;
     private bool search = false;
+    private int hp;
 
     private void Start()
     {
+        hp = turret.hp[3];
         audioSource = GetComponent<AudioSource>();
         InvokeRepeating(nameof(UpdateAI), 0f, 0.5f);
-    }
-
-    private void Update()
-    {
-
     }
 
     private void SetAi()
@@ -82,6 +78,7 @@ public class Turret : MonoBehaviour
             {
                 search = true;
                 p = obj;
+                break;
             }
         }
     }
@@ -115,5 +112,21 @@ public class Turret : MonoBehaviour
         newAmmo.name = ammo.gameObject.name;
         // 出現させたボールを0.8秒後に消す
         Destroy(newAmmo, 0.8f);
+    }
+
+    public bool ReceiveDamage(int Pdamage)
+    {
+        bool deadFlag = false;
+        hp -= Pdamage;
+        if (hp <= 0)
+        {
+            hp = 0;
+            Destroy(gameObject);
+            deadFlag = true;
+        }
+
+        Debug.Log("Turret は " + Pdamage + "ダメージ食らった\n残りHP " + hp);
+
+        return deadFlag;
     }
 }

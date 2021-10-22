@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
-    public float power;
+    public int power;
     public float radius;
     public GameObject ex;
 
@@ -14,12 +14,12 @@ public class Mine : MonoBehaviour
 
         if (p != null)
         {
-            p.ReceiveDamage((int)power);
+            p.ReceiveDamage(power);
 
             Vector3 explosionPos = transform.position;
 
             ex.transform.position = explosionPos;
-            Instantiate(ex,transform.position,transform.rotation);
+            Instantiate(ex, transform.position, transform.rotation);
 
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
             foreach (Collider hit in colliders)
@@ -28,12 +28,12 @@ public class Mine : MonoBehaviour
 
                 if (rb != null)
                 {
-                    rb.AddExplosionForce(power, explosionPos, radius, 300.0F);
+                    rb.AddExplosionForce(power, explosionPos, radius, 1000.0F);
 
-                    var r = collision.gameObject.GetComponent<IReceiveDamage>();
-                    if (p != null)
+                    var r = hit.gameObject.GetComponent<IReceiveDamage>();
+                    if (r != null)
                     {
-                        p.ReceiveDamage((int)power);
+                        r.ReceiveDamage(power);
                     }
                 }
             }

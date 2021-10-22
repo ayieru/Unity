@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2983132192100896910}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   ammo: {fileID: 8245624770100081822, guid: 2e564ff08a562ad4ca327f947bf1bac9, type: 3}
   NEAR_DIR: 30
   sound: {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
+  turret: {fileID: 11400000, guid: 28682e9378eb915419e432ad1f5132b8, type: 2}
 --- !u!82 &2983132192100896910
 AudioSource:
   m_ObjectHideFlags: 0

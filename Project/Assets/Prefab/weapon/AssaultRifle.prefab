@@ -91,8 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb53a85c8b6f8f547989c33b054687f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 9c5ef37c68576fe429d653f849647b22, type: 2}
   GO_firingPoint: {fileID: 1100499122105792195}
-  magazine: {fileID: 2357852212095751467}
+  magazine: {fileID: 7323959587998327879}
 --- !u!1 &8036781932491954045
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8036781932491954044}
-  - component: {fileID: 2357852212095751467}
+  - component: {fileID: 7323959587998327879}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -124,7 +125,7 @@ Transform:
   m_Father: {fileID: 6324494212513476294}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2357852212095751467
+--- !u!114 &7323959587998327879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8036781932491954045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b446fa28101b00d418120727e91e95e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fdccf84ce872444894ebfd01fb66697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0

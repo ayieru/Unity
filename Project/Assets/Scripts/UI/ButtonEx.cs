@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,12 +28,12 @@ public class ButtonEx : MonoBehaviour
 
         P_Update.SetActive(false);
 
-        //イベントトリガー作�??
+        //イベントトリガー作成
         button = GetComponent<Button>();
         button.gameObject.AddComponent<EventTrigger>();
         var trigger = button.GetComponent<EventTrigger>();
 
-        //登録するイベントを設�?
+        //登録するイベントを設置
         var mouseOver = new EventTrigger.Entry();
         mouseOver.eventID = EventTriggerType.PointerEnter;
         mouseOver.callback.AddListener((data) => { MouseOver(); });
@@ -42,7 +42,7 @@ public class ButtonEx : MonoBehaviour
         mouseExit.eventID = EventTriggerType.PointerExit;
         mouseExit.callback.AddListener((data) => { MouseExit(); });
 
-        //トリガーに機�?�追�?
+        //トリガーに機能追加
         trigger.triggers.Add(mouseOver);
         trigger.triggers.Add(mouseExit);
     }
@@ -69,7 +69,7 @@ public class ButtonEx : MonoBehaviour
     }
 
 
-    //クリ�?クされた時の処�?
+    //クリックされたときの処理
     public void Barricade()
     {
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public partial class Player
 {
     void WeaponInit()
     {
-        WeaponInstantite(DHandgun);
+        WeaponInstantite(DAssaultRifle);
         WeaponInstantite(DShotgun);
 
         weapon[1].GO.SetActive(false);
@@ -23,24 +23,6 @@ public partial class Player
         ItemInstantiate(EItem.Board);
         ItemInstantiate(EItem.Landmine);
         ItemInstantiate(EItem.Turret);
-    }
-
-    bool reloadFlag = false;
-    float reloadElapsedTime = 0;
-    float reloadTime = 1;
-
-    void ReloadUpdate()
-    {
-        if(reloadFlag == true){
-            reloadElapsedTime += Time.deltaTime;
-            if(reloadElapsedTime > reloadTime)
-            {
-                reloadElapsedTime = 0;
-                reloadFlag = false;
-
-                weapon[currentWeaponNum].script.Reload();
-            }
-        }
     }
 
     void ItemInstantiate(EItem itemAttr)
@@ -67,6 +49,12 @@ public partial class Player
             script = tmpGO.GetComponent<Weapon>()
         });
     }
+
+    public void BuyItem(EItem itemAttr)
+    {
+        item[(int)itemAttr].currentNum++;
+    }
+    
     public void BuyHandgun()
     {
         Destroy(weapon[currentWeaponNum].GO);

@@ -6,23 +6,8 @@ public partial class Player
 {
     void WeaponInit()
     {
-        Vector3 position;
-        GameObject tmpGO;
-
-        position = transform.GetChild(0).position + handgun.weapon.transform.position;
-        tmpGO =  Instantiate(handgun.weapon, position, handgun.weapon.transform.rotation, transform.GetChild(0));
-        weapon.Add(new WeaponInfo{
-            GO = tmpGO,
-            script = tmpGO.GetComponent<Weapon>()
-        });
-        Debug.Log(weapon[0].GO);
-
-        position = transform.GetChild(0).position + shotgun.weapon.transform.position;
-        tmpGO =  Instantiate(shotgun.weapon, position, shotgun.weapon.transform.rotation, transform.GetChild(0));
-        weapon.Add(new WeaponInfo{
-            GO = tmpGO,
-            script = tmpGO.GetComponent<Weapon>()
-        });
+        WeaponInstantite(DHandgun);
+        WeaponInstantite(DShotgun);
 
         weapon[1].GO.SetActive(false);
     }
@@ -60,41 +45,54 @@ public partial class Player
 
     void ItemInstantiate(EItem itemAttr)
     {
-        //Vector3 position;
         GameObject tmpGO;
 
-        //position = this.transform.position + itemData.item[(int)itemAttr].transform.position;
-        Debug.Log(itemData.item[(int)itemAttr].transform.position);
-        tmpGO = Instantiate(itemData.item[(int)itemAttr], this.transform, false);//.position, transform.rotation, this.transform);
+        Debug.Log(DItem.item[(int)itemAttr].transform.position);
+        tmpGO = Instantiate(DItem.item[(int)itemAttr], this.transform, false);
         item[(int)itemAttr].GO = tmpGO;
         item[(int)itemAttr].script = tmpGO.GetComponent<Item>();
-        item[(int)itemAttr].maxNum = itemData.max[(int)itemAttr];
+        item[(int)itemAttr].maxNum = DItem.max[(int)itemAttr];
         item[(int)itemAttr].currentNum = 2;
 
         item[(int)itemAttr].GO.SetActive(false);
     }
+
+    void WeaponInstantite(WeaponData DWeapon)
+    {
+        GameObject tmpGO;
+
+        tmpGO =  Instantiate(DWeapon.weapon, transform.GetChild(0), false);
+        this.weapon.Add(new WeaponInfo{
+            GO = tmpGO,
+            script = tmpGO.GetComponent<Weapon>()
+        });
+    }
     public void BuyHandgun()
     {
         Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(handgun.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[currentWeaponNum].GO = Instantiate(DHandgun.weapon, transform.GetChild(0), false);
         weapon[currentWeaponNum].script = weapon[0].GO.GetComponent<Weapon>();
+        points -= DHandgun.cost[0];
     }
     public void BuyShotgun()
     {
         Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(shotgun.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[currentWeaponNum].GO = Instantiate(DShotgun.weapon, transform.GetChild(0), false);
         weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
+        points -= DShotgun.cost[0];
     }
     public void BuyAssaultRifle()
     {
         Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(assaultRifle.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[currentWeaponNum].GO = Instantiate(DAssaultRifle.weapon, transform.GetChild(0), false);
         weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
+        points -= DAssaultRifle.cost[0];
     }
     public void BuyRoketLancher()
     {
         Destroy(weapon[currentWeaponNum].GO);
-        weapon[currentWeaponNum].GO = Instantiate(roketLancher.weapon, transform.position, transform.rotation, transform.GetChild(0));
+        weapon[currentWeaponNum].GO = Instantiate(DRoketLancher.weapon, transform.GetChild(0), false);
         weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
+        points -= DRoketLancher.cost[0];
     }
 }

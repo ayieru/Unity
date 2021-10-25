@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Player : MonoBehaviour , IReceiveDamage
+public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 {
     GameObject GOPlayerCamera;
-    // ƒ‚[ƒh
+    // ãƒ¢ãƒ¼ãƒ‰
     enum Mode
     {
         Weapon,
@@ -15,13 +15,13 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     Mode mode = Mode.Weapon;
     // Data
-    public WeaponData handgun;
-    public WeaponData shotgun;
-    public WeaponData assaultRifle;
-    public WeaponData roketLancher;
-    public ItemData itemData;
+    public WeaponData DHandgun;
+    public WeaponData DShotgun;
+    public WeaponData DAssaultRifle;
+    public WeaponData DRoketLancher;
+    public ItemData DItem;
 
-    // •Ší
+    // æ­¦å™¨
     private const int weaponCount = 2;
     public class WeaponInfo
     {
@@ -31,7 +31,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
     public List<WeaponInfo> weapon { get; private set; } = new List<WeaponInfo>();
     public int currentWeaponNum { get; private set; } = 0;
 
-    // ƒAƒCƒeƒ€
+    // ã‚¢ã‚¤ãƒ†ãƒ 
     public enum EItem
     {
         Barricade,
@@ -50,17 +50,13 @@ public partial class Player : MonoBehaviour , IReceiveDamage
 
     public EItem currentItemAttr { get; private set; } = EItem.Barricade;
     List<ItemInfo> item = new List<ItemInfo>();
-    public GameObject GOBarricade;
-    public GameObject GOBoard;
-    public GameObject GOLandmine;
-    public GameObject GOTurret;
 
-    // ‘Ì—Í
+    // ä½“åŠ›
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
 
-    // ƒ|ƒCƒ“ƒg
-    public int points { get; private set; } = 100;
+    // ãƒã‚¤ãƒ³ãƒˆ
+    public int points { get; private set; } = 1000;
 
     // Get
     public int GetWeaponAmmoNum()
@@ -92,7 +88,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         CameraStart();
     }
 
-    // 0ƒNƒ‰ƒ“ƒv
+    //
     int ZeroClampNum(int num, bool increace)
     {
         if(increace){
@@ -114,7 +110,7 @@ public partial class Player : MonoBehaviour , IReceiveDamage
             SwitchItemsAndWeapon();
             Debug.Log(mode);
         }
-        // Ø‚è‘Ö‚¦
+        // åˆ‡ã‚Šæ›¿ãˆ
         if(0 < Input.GetAxis("Mouse ScrollWheel"))
         {
             switch (mode)
@@ -156,11 +152,10 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         MovementFixedUpdate();
     }
 
-    public bool ReceiveDamage(int Pdamage)
+    public void ReceiveDamage(int damage)
     {
-        currentHp -= Pdamage;
+        currentHp -= damage;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-        return true;
     }
 
     void Shoot()
@@ -173,7 +168,6 @@ public partial class Player : MonoBehaviour , IReceiveDamage
         reloadFlag = true;
     }
 
-    //void Searchhave
     void Install()
     {
         item[(int)currentItemAttr].script.Install();

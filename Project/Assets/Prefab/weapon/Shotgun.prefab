@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2723669282408752742}
   - component: {fileID: 4940602055456993710}
-  - component: {fileID: 7105700489460548976}
+  - component: {fileID: 326291462909207137}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -49,7 +49,7 @@ MonoBehaviour:
   targetDistance: 10
   gizmoSize: 0.3
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!114 &7105700489460548976
+--- !u!114 &326291462909207137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,11 +58,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1341594742123968545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867b71adda1beee4e9fee8bbd31c571b, type: 3}
+  m_Script: {fileID: 11500000, guid: 483d5981b36144f439bad90505c7be76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
   GO_firingPoint: {fileID: 4940160109939099124}
-  magazine: {fileID: 5958738577975860619}
+  magazine: {fileID: 8547609589413454202}
 --- !u!1 &2126004294959833053
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 2126004294959833052}
   - component: {fileID: 2126004294959833049}
   - component: {fileID: 2126004294959833054}
-  - component: {fileID: 5958738577975860619}
+  - component: {fileID: 8547609589413454202}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5958738577975860619
+--- !u!114 &8547609589413454202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2126004294959833053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b446fa28101b00d418120727e91e95e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 80460c34e33393343801b90d9f4b1dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0

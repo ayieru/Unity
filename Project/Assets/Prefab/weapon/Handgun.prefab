@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867b71adda1beee4e9fee8bbd31c571b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
   GO_firingPoint: {fileID: 2776736701287943816}
   magazine: {fileID: 6628777829529664299}
 --- !u!1 &2776736701287943816

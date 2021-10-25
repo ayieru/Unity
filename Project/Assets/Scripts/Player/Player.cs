@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -103,8 +103,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     {
         MovementUpdate();
         CameraUpdate();
-        ReloadUpdate();
-
+        
         if(Input.GetKeyDown(KeyCode.M))
         {
             SwitchItemsAndWeapon();
@@ -165,7 +164,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     void Reload()
     {
-        reloadFlag = true;
+        weapon[currentWeaponNum].script.Reload();
     }
 
     void Install()

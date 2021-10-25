@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField]
     protected WeaponData weaponData;
     public int level { get; protected set; }
     public void SetLevel(int level)
@@ -30,14 +31,16 @@ public abstract class Weapon : MonoBehaviour
     protected float shootElapsedTime = 0;
     protected float shootRate = 1f;
 
-    void Awake()
-    {
-        magazine.level = level;
-    }
+    //リロード
+    protected bool reloadFlag = false;
+    protected float reloadElapsedTime = 0;
+    protected float reloadTime;
+
     public void Reload()
     {
-        magazine.LoadMagazine();
+        reloadFlag = true;
     }
+    public abstract void ReloadUpdate();
 
     public abstract void Shoot();
 

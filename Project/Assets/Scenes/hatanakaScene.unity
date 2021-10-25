@@ -1865,8 +1865,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7913537524480391388, guid: 27018cc79603fff429d34bf0f2d79588,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_MethodName: UPLevel
         m_Mode: 1
         m_Arguments:
@@ -3586,8 +3585,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: S
+      - m_Target: {fileID: 1366746971}
+        m_MethodName: BuyShotgun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7285,10 +7284,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6476371308819564293, guid: c2a97a2274b1552418ae65f69088d8ef,
-          type: 3}
-        m_MethodName: SetLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1366746971}
+        m_MethodName: BuyHandgun
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10525,8 +10523,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: A
+      - m_Target: {fileID: 1366746971}
+        m_MethodName: BuyAssaultRifle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11401,8 +11399,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: R
+      - m_Target: {fileID: 1366746971}
+        m_MethodName: BuyRoketLancher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

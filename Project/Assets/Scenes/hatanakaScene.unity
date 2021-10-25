@@ -7960,18 +7960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aabf3fbdf4855409f8c3e495096120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handgun: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
-  shotgun: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
-  assaultRifle: {fileID: 0}
-  roketLancher: {fileID: 11400000, guid: 34f781b8e80bcea4ea37250200c76def, type: 2}
-  itemData: {fileID: 11400000, guid: 28682e9378eb915419e432ad1f5132b8, type: 2}
-  GOBarricade: {fileID: 8064455843833475004, guid: c8fa8bd0f20571946bffcbbca0958c2b,
-    type: 3}
-  GOBoard: {fileID: 1329342604719924420, guid: b6e0f8964434cbe4987f7ebc422c4f97, type: 3}
-  GOLandmine: {fileID: 6243994679520701526, guid: 92c45508e67496c4b96ecccf1e6cbebf,
-    type: 3}
-  GOTurret: {fileID: 1696392454953865244, guid: 378bc6277b4f1684fb224ecf686652fa,
-    type: 3}
+  DHandgun: {fileID: 11400000, guid: 24d0bb57a2c94ef42ac90c6c39a701aa, type: 2}
+  DShotgun: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
+  DAssaultRifle: {fileID: 11400000, guid: 9c5ef37c68576fe429d653f849647b22, type: 2}
+  DRoketLancher: {fileID: 11400000, guid: 34f781b8e80bcea4ea37250200c76def, type: 2}
+  DItem: {fileID: 11400000, guid: 28682e9378eb915419e432ad1f5132b8, type: 2}
   cam: {fileID: 986926340}
   walkSpeed: 5
   dashSpeedRate: 2

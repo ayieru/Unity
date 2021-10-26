@@ -6,7 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
     protected WeaponData weaponData;
-    public int level { get; protected set; }
+    public int level { get; protected set; } = 0;
     public void SetLevel(int level)
     {
         this.level = level;

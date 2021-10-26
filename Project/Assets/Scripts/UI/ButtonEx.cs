@@ -22,9 +22,9 @@ public class ButtonEx : MonoBehaviour
     {
         P_Update.SetActive(true);
 
-        pre = GameObject.Find("UI_Update/P_Update/Data_pre");
-        aff = GameObject.Find("UI_Update/P_Update/Data_aff");
-        item = GameObject.Find("UI_ObjectShop/P_ObjectShop/P_Purchase");
+        pre = GameObject.Find("UI/P_WeaponUpdate/P_Update/Data_pre");
+        aff = GameObject.Find("UI/P_WeaponUpdate/P_Update/Data_aff");
+        item = GameObject.Find("UI/P_ObjectShop/P_Purchase");
 
         P_Update.SetActive(false);
 

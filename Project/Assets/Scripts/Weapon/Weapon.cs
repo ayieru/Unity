@@ -9,7 +9,7 @@ public abstract class Weapon : MonoBehaviour
     public int level { get; protected set; } = 0;
     public void SetLevel(int level)
     {
-        this.level = level;
+        //this.level = level;
     }
     public void UPLevel()
     {
@@ -28,6 +28,7 @@ public abstract class Weapon : MonoBehaviour
     protected float power = 50;
     protected bool shootFlag = true;
     protected float shootElapsedTime = 0;
+    [SerializeField]
     protected float shootRate = 1f;
 
     //リロード

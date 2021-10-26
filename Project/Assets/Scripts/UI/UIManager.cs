@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject P_WeaponShop;
     [SerializeField] GameObject P_ObjectShop;
     [SerializeField] GameObject P_Update;
+    [SerializeField] GameObject P_GameClear;
+    [SerializeField] GameObject P_GameOver;
 
     //現在のUIの状態保存
     enum UI_State{
@@ -57,7 +59,6 @@ public class UIManager : MonoBehaviour
                     break;
             }
         }
-
         UpdareCursorLock();
     }
 
@@ -72,6 +73,8 @@ public class UIManager : MonoBehaviour
         P_WeaponShop.SetActive(false);
         P_ObjectShop.SetActive(false);
         P_Update.SetActive(false);
+        P_GameClear.SetActive(true);
+        P_GameOver.SetActive(false);
     }
 
     //武器or配置物選択画面
@@ -105,6 +108,32 @@ public class UIManager : MonoBehaviour
         P_ObjectShop.SetActive(true);
     }
 
+    public void GameOver()
+    {
+        cursorLock = false;
+
+        P_Player.SetActive(false);
+        P_ShopChoice.SetActive(false);
+        P_WeaponShop.SetActive(false);
+        P_ObjectShop.SetActive(false);
+        P_Update.SetActive(false);
+        P_GameClear.SetActive(false);
+        P_GameOver.SetActive(true);
+    }
+
+    public void GameClear()
+    {
+        cursorLock = false;
+
+        P_Player.SetActive(false);
+        P_ShopChoice.SetActive(false);
+        P_WeaponShop.SetActive(false);
+        P_ObjectShop.SetActive(false);
+        P_Update.SetActive(false);
+        P_GameClear.SetActive(true);
+        P_GameOver.SetActive(false);
+    }
+
     private void UpdareCursorLock()
     {
         if (cursorLock)
@@ -116,4 +145,6 @@ public class UIManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+
+
 }

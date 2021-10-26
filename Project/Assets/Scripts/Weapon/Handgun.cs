@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Handgun : Weapon
 {
+
     // Update is called once per frame
     void Update()
     {

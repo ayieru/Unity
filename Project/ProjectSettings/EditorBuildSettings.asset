@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/S_ayier.unity
+    guid: 1071e7a20f6245a439151a186a1b4e0a
   m_configObjects: {}

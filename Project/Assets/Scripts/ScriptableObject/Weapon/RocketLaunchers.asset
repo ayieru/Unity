@@ -22,5 +22,6 @@ MonoBehaviour:
   cost: 2c010000
   reload:
   - 5
-  rate: 01000000
+  rate:
+  - 0.1
   add: 00000000

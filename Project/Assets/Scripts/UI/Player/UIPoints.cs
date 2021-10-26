@@ -17,7 +17,7 @@ public class UIPoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string text = "Point " + playerScript.points.ToString().PadLeft(4);
+        string text = playerScript.points.ToString().PadLeft(4);
         pointText.text = text;
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +6,9 @@ public partial class Player
 {
     public GameObject cam;
     Quaternion cameraRot, playerRot;
-    // Š´“x
+    // æ„Ÿåº¦
     float xSensitivity = 3f, ySensitivity = 3f;
-    // U‚èŒü‚«•
+    // ä¸Šä¸‹ã®æŒ¯ã‚Šå‘ãå¹…
     float minX = -90f, maxX = 90f;
 
     void CameraStart()

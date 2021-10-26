@@ -5,6 +5,13 @@ using UnityEngine;
 public class Handgun : Weapon
 {
 
+    void Awake()
+    {
+        magazine.level = level;
+        reloadTime = weaponData.reload[level];
+        shootRate = weaponData.rate[level];
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +23,8 @@ public class Handgun : Weapon
                 shootFlag = true;
             }
         }
+
+        ReloadUpdate();
     }
 
     public override void Shoot()
@@ -39,4 +48,16 @@ public class Handgun : Weapon
         }
     }
 
+    public override void ReloadUpdate()
+    {
+        if(reloadFlag == true){
+            reloadElapsedTime += Time.deltaTime;
+            if(reloadElapsedTime > reloadTime)
+            {
+                reloadElapsedTime = 0;
+                reloadFlag = false;
+                magazine.LoadMagazine();
+            }
+        }
+    }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandgunMagazine : Magazine
+public class MagRocketLauncher : Magazine
 {
     // Start is called before the first frame update
     void Awake()

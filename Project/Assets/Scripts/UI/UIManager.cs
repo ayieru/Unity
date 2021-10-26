@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
         P_WeaponShop.SetActive(false);
         P_ObjectShop.SetActive(false);
         P_Update.SetActive(false);
-        P_GameClear.SetActive(true);
+        P_GameClear.SetActive(false);
         P_GameOver.SetActive(false);
     }
 

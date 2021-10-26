@@ -88,8 +88,8 @@ public class Turret : MonoBehaviour ,IReceiveDamage
         if (p != null)
         {
             transform.LookAt(p.transform);
-            Shoot();
             audioSource.PlayOneShot(sound);
+            Shoot();
         }
         search = false;
     }

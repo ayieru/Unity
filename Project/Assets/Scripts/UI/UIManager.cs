@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-       //現在のUIの状態保存
+
+    //現在のUIの状態保存
     public enum UI_State{
         Player,
         ShopChoice,
@@ -16,8 +17,10 @@ public class UIManager : MonoBehaviour
         Max
     }
     public UI_State state;
+
     //Panelオブジェクトをセットする
     [SerializeField] GameObject[] GOState = new GameObject[(int)UI_State.Max];
+
 
     bool cursorLock = true;
 

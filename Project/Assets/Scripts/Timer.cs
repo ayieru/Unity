@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public  float gameTime;
+    private float tim;
     private Text t;
+    private bool b = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,22 @@ public class Timer : MonoBehaviour
         if (gameTime <= 0)
         {
             gameTime = 0f;
+        }
+    }
+    private void OnDisable()
+    {
+        tim = Time.realtimeSinceStartup;
+    }
+
+    private void OnEnable()
+    {
+        if (!b)
+        {
+            b = true;
+        }
+        else
+        {
+            gameTime -= Time.realtimeSinceStartup - tim;
         }
     }
 }

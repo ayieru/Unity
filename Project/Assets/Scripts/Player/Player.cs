@@ -56,7 +56,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     public float currentHp { get; private set; }
 
     // ポイント
-    public int points { get; private set; } = 1000;
+    public int points { get; private set; } = 0;
 
     // Get
     public int GetWeaponAmmoNum()

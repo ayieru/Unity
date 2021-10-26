@@ -26,7 +26,6 @@ public abstract class Weapon : MonoBehaviour
     public Magazine magazine; //{ get; protected set; }
 
     protected float power = 50;
-
     protected bool shootFlag = true;
     protected float shootElapsedTime = 0;
     [SerializeField]
@@ -37,8 +36,14 @@ public abstract class Weapon : MonoBehaviour
     protected float reloadElapsedTime = 0;
     protected float reloadTime;
 
+    //サウンド
+    public AudioClip shot;
+    public AudioClip reload;
+    protected AudioSource audioSource;
+
     public void Reload()
     {
+        audioSource.PlayOneShot(reload);
         reloadFlag = true;
     }
     public abstract void ReloadUpdate();

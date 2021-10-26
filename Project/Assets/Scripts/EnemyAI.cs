@@ -49,10 +49,6 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
                 break;
         }
     }
-    private void Update()
-    {
-
-    }
 
     public bool ReceiveDamage(int Pdamage)
     {
@@ -90,6 +86,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
+
 
         agent.speed *= speed;
     }
@@ -224,10 +221,8 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         float dir = Vector3.Distance(p.transform.position, transform.position);
         if (dir < 15)
         {
-            agent.SetDestination(transform.position);
-            GameObject t = transform.Find("target").gameObject;
-            Instantiate(add, t.transform.position, transform.rotation);
-            add.GetComponent<rock>().SetTarget(p.transform.position);
+            transform.LookAt(p.transform);
+            Invoke(nameof(Throw), 3f);
         }
         else
         {
@@ -247,5 +242,15 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         {
             search = false;
         }
+    }
+
+    private void Throw()
+    {
+        agent.SetDestination(transform.position);
+        transform.LookAt(p.transform);
+        GameObject t = transform.Find("target").gameObject;
+        Instantiate(add, t.transform.position, transform.rotation);
+        add.GetComponent<rock>().SetTarget(p.transform.position);
+        CancelInvoke();
     }
 }

@@ -8,11 +8,11 @@ public class Ammo : MonoBehaviour
     public int headpower;
 
     [SerializeField]
-    Player playerScript;
+    GameObject playerScript;
 
     void Awake()
     {
-        
+        playerScript = GameObject.Find("Player");
     }
 
     void Update()
@@ -32,7 +32,7 @@ public class Ammo : MonoBehaviour
                 var tmpScript2 = other.gameObject.GetComponent<IAddPoints>();
                 if(tmpScript2 != null)
                 {
-                    playerScript.AddPoints(tmpScript2.GetPoints());
+                    playerScript.GetComponent<Player>().AddPoints(tmpScript2.GetPoints());
                 }
             }
         }

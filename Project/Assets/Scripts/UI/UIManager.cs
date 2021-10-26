@@ -15,13 +15,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject P_GameOver;
 
     //現在のUIの状態保存
-    enum UI_State{
+    public enum UI_State{
         Player,
         ShopChoice,
         WeaponShop,
         ObjectShop,
     }
-    UI_State state;
+    public UI_State state;
 
     bool cursorLock = true;
 

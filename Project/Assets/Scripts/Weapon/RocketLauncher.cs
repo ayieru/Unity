@@ -9,6 +9,7 @@ public class RocketLauncher : Weapon
         magazine.level = level;
         reloadTime = weaponData.reload[level];
         shootRate = weaponData.rate[level];
+        audioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -31,6 +32,7 @@ public class RocketLauncher : Weapon
         {
             if(magazine.LoadGun())
             {
+                audioSource.PlayOneShot(shot);
                 // 上で取得した場所に、"bullet"のPrefabを出現させる
                 GameObject newAmmo = Instantiate(magazine.ammo.gameObject, GetFPPosition(), transform.rotation);
                 // 出現させたボールのforward(z軸方向)
@@ -52,6 +54,7 @@ public class RocketLauncher : Weapon
             reloadElapsedTime += Time.deltaTime;
             if(reloadElapsedTime > reloadTime)
             {
+                audioSource.PlayOneShot(reload);
                 reloadElapsedTime = 0;
                 reloadFlag = false;
                 magazine.LoadMagazine();

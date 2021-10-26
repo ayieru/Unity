@@ -27,7 +27,7 @@ public class RocketLauncher : Weapon
 
     public override void Shoot()
     {
-        if(shootFlag)
+        if(shootFlag && !reloadFlag)
         {
             if(magazine.LoadGun())
             {

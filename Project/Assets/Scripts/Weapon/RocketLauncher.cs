@@ -26,7 +26,7 @@ public class RocketLauncher : Weapon
 
     public override void Shoot()
     {
-        if(shootFlag && !reloadFlag)
+        if(shootFlag && !reloadFrag)
         {
             if(magazine.LoadGun())
             {
@@ -48,13 +48,13 @@ public class RocketLauncher : Weapon
 
     public override void ReloadUpdate()
     {
-        if(reloadFlag == true){
+        if(reloadFrag == true){
             reloadElapsedTime += Time.deltaTime;
             if(reloadElapsedTime > reloadTime)
             {
                 audioSource.PlayOneShot(reload);
                 reloadElapsedTime = 0;
-                reloadFlag = false;
+                reloadFrag = false;
                 Instantiate(magazine.bullet.gameObject, GetFPPosition(), magazine.bullet.transform.rotation);
                 magazine.LoadMagazine();
             }

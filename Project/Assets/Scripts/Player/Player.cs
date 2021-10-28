@@ -58,7 +58,11 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     // ポイント
     public int points { get; private set; } = 0;
 
-    // Get
+    // ダメージを受ける状態フラグ
+    bool receiveDamageFrag = true;
+    [SerializeField] float invincibleTime = 5.0f;
+
+    // Get関数
     public int GetWeaponAmmoNum()
     {
         return weapon[currentWeaponNum].script.magazine.currentAmmoNum;
@@ -132,6 +136,10 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
                 {
                     Shoot();
                 }
+                else if(Input.GetMouseButtonUp(0))
+                {
+                    ShootEnd();
+                }
                 if(Input.GetKeyDown(KeyCode.R) || weapon[currentWeaponNum].script.magazine.currentAmmoNum == 0)
                 {
                     Reload();
@@ -153,13 +161,26 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     public void ReceiveDamage(int damage)
     {
-        currentHp -= damage;
-        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        if(receiveDamageFrag)
+        {
+            receiveDamageFrag = false;
+            currentHp -= damage;
+            currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+            Invoke("ReceiveDamageFragOn", invincibleTime);
+        }
+    }
+    void ReceiveDamageFragOn()
+    {
+        receiveDamageFrag = true;
     }
 
     void Shoot()
     {
         weapon[currentWeaponNum].script.Shoot();
+    }
+    void ShootEnd()
+    {
+        weapon[currentWeaponNum].script.ShootEnd();
     }
 
     void Reload()

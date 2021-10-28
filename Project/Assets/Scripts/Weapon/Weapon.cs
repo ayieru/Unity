@@ -26,29 +26,65 @@ public abstract class Weapon : MonoBehaviour
     public Magazine magazine; //{ get; protected set; }
 
     protected float power = 50;
+    protected bool shootingFrag = false;
     protected bool shootFlag = true;
     protected float shootElapsedTime = 0;
     [SerializeField]
     protected float shootRate = 1f;
+
+    //Bulletに情報を渡す用
+    protected Player playerScript;
 
     //リロード
     protected bool reloadFlag = false;
     protected float reloadElapsedTime = 0;
     protected float reloadTime;
 
+    //マズルフラッシュ
+    bool MFActiveFrag = false;
+    float MFswitchTime = 0.1f;
+    [SerializeField] protected GameObject GOMazzuleFlash;
+
     //サウンド
     public AudioClip shot;
     public AudioClip reload;
     protected AudioSource audioSource;
+
+    protected void Awake()
+    {
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
+        magazine.level = level;
+        reloadTime = weaponData.reload[level];
+        shootRate = weaponData.rate[level];
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void Reload()
     {
         audioSource.PlayOneShot(reload);
         reloadFlag = true;
     }
+
+    protected void SwitchMuzzleFlash(bool frag)
+    {
+        GOMazzuleFlash.SetActive(frag);
+    }
+    protected void MuzzleFlashUpdate()
+    {
+        if(!shootingFrag)
+        {
+            GOMazzuleFlash.SetActive(false);
+        }
+    }
+
     public abstract void ReloadUpdate();
 
     public abstract void Shoot();
+
+    public void ShootEnd()
+    {
+        shootingFrag = false;
+    }
 
     protected Vector3 GetFPPosition()
     {
@@ -81,5 +117,4 @@ public abstract class Weapon : MonoBehaviour
 
         return forward.normalized;
     }
-
 }

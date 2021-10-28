@@ -103,7 +103,7 @@ public class Turret : MonoBehaviour ,IReceiveDamage
     {
         // 上で取得した場所に、"bullet"のPrefabを出現させる
         GameObject newAmmo = Instantiate(ammo.gameObject, transform.position, transform.rotation);
-        ammo.GetComponent<Ammo>().SetPower(30);
+        ammo.GetComponent<Bullet>().SetPower(30);
         // 出現させたボールのforward(z軸方向)
         Vector3 direction = transform.forward;
         // 弾の発射方向にnewBallのz方向(ローカル座標)を入れ、弾オブジェクトのrigidbodyに衝撃力を加える

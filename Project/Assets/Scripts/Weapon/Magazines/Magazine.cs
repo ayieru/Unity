@@ -6,7 +6,8 @@ public abstract class Magazine : MonoBehaviour
 {
     public int level;
     [SerializeField]
-    public Ammo ammo;
+    public Bullet bullet;
+    public Shell shell;
 
     public WeaponData weaponData;
 

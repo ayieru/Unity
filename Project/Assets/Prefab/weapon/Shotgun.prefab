@@ -65,6 +65,7 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
   GO_firingPoint: {fileID: 4940160109939099124}
   magazine: {fileID: 8547609589413454202}
+  shootRate: 1
   shot: {fileID: 8300000, guid: dfb6a855c884c294994158784e6cb3b7, type: 3}
   reload: {fileID: 8300000, guid: 45c4785fa2728ad41b4b1996a62652af, type: 3}
 --- !u!82 &1267207955034081931
@@ -256,7 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  ammo: {fileID: 893738470922973628, guid: 2e564ff08a562ad4ca327f947bf1bac9, type: 3}
+  bullet: {fileID: 1427769466033567178, guid: c6e63594d35e15440aa131889a21f650, type: 3}
+  shell: {fileID: 2806376299694654174, guid: 67661568b16e49f4299e66038111d11d, type: 3}
   weaponData: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
 --- !u!1 &4940160109939099124
 GameObject:
@@ -282,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940160109939099124}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.497, y: 0, z: 0.139}
+  m_LocalPosition: {x: -0.475, y: 0.03, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5508033737284902197}

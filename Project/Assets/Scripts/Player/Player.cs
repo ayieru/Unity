@@ -14,7 +14,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     }
 
     Mode mode = Mode.Weapon;
-    // Data
+    // Data(ScriptableObject)
     public WeaponData DHandgun;
     public WeaponData DShotgun;
     public WeaponData DAssaultRifle;
@@ -23,6 +23,16 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     // 武器
     private const int weaponCount = 2;
+    public enum EWeapon
+    {
+        Handgun,
+        Shotgun,
+        AssaultRifle,
+        RocketLauncher,
+        Max
+    }
+    public int[] haveWeaponNum = new int[(int)EWeapon.Max];
+
     public class WeaponInfo
     {
         public GameObject GO;
@@ -54,6 +64,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     // 体力
     public float maxHp { get; private set; }
     public float currentHp { get; private set; }
+    //public float heal = 10;
 
     // ポイント
     public int points { get; private set; } = 0;
@@ -82,6 +93,10 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     void Start()
     {
+        for(int i = 0; i < haveWeaponNum.Length; i++)
+        {
+            haveWeaponNum[i] = 0;
+        }
         WeaponInit();
         ItemInit();
 
@@ -273,5 +288,10 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     public void AddPoints(int points)
     {
         this.points += points;
+    }
+
+    public void HealHp()
+    {
+        currentHp = maxHp;
     }
 }

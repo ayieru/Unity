@@ -36,7 +36,7 @@ public abstract class Weapon : MonoBehaviour
     protected Player playerScript;
 
     //リロード
-    protected bool reloadFlag = false;
+    protected bool reloadFrag = false;
     protected float reloadElapsedTime = 0;
     protected float reloadTime;
 
@@ -52,6 +52,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected void Awake()
     {
+        level = 0;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         magazine.level = level;
         reloadTime = weaponData.reload[level];
@@ -61,8 +62,11 @@ public abstract class Weapon : MonoBehaviour
 
     public void Reload()
     {
-        audioSource.PlayOneShot(reload);
-        reloadFlag = true;
+        if(!reloadFrag)
+        {
+            audioSource.PlayOneShot(reload);
+            reloadFrag = true;
+        }
     }
 
     protected void SwitchMuzzleFlash(bool frag)

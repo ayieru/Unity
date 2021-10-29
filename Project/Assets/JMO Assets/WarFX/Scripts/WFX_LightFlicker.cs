@@ -14,10 +14,11 @@ public class WFX_LightFlicker : MonoBehaviour
 	
 	private float timer;
 	
-	void Start ()
+	void Awake ()
 	{
 		timer = time;
 		StartCoroutine("Flicker");
+		GetComponent<Light>().enabled = !GetComponent<Light>().enabled;
 	}
 	
 	IEnumerator Flicker()

@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-        //Destroy(this.gameObject, 2f);
+
     }
 
     void Update()

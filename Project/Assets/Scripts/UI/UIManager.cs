@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     //Panelオブジェクトをセットする
     [SerializeField] GameObject[] GOState = new GameObject[(int)UI_State.Max];
 
-
     bool cursorLock = true;
 
     // Start is called before the first frame update
@@ -87,6 +86,7 @@ public class UIManager : MonoBehaviour
     //プレイヤー画面
     public void SetPlayerUI()
     {
+        cursorLock = true;
         SetUIState(UI_State.Player);
     }
 

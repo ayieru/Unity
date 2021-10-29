@@ -22,6 +22,6 @@ public class Stage : MonoBehaviour
     //セレクトボタンを押すと対応したステージに切り替わる
     public void SelectBt(int Stage)
     {
-        SceneManager.LoadScene("stage" + Stage);
+        SceneManager.LoadScene("stage " + Stage);
     }
 }

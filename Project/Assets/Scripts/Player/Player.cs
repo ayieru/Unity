@@ -177,7 +177,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         MovementFixedUpdate();
     }
 
-    void OnCollisionStay(Collision collisionInfo)
+    void OnTriggerStay(Collider collisionInfo)
     {
         //アイテムとの当たり判定
         if(collisionInfo.gameObject.CompareTag("Turret"))

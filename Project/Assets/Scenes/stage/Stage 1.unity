@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 78264187}
   - component: {fileID: 78264189}
   - component: {fileID: 78264188}
+  - component: {fileID: 78264190}
   m_Layer: 5
   m_Name: Barricade
   m_TagString: Untagged
@@ -511,6 +512,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78264186}
   m_CullTransparentMesh: 0
+--- !u!114 &78264190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78264186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d67bb14ceb2548bde7d89bb3cc33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 1844025621}
+  itemAttr: 0
+  itemText: {fileID: 850673614}
+  colorScript: {fileID: 1609467901}
 --- !u!1 &94382117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,6 +2746,7 @@ GameObject:
   - component: {fileID: 383229618}
   - component: {fileID: 383229620}
   - component: {fileID: 383229619}
+  - component: {fileID: 383229621}
   m_Layer: 5
   m_Name: Turret
   m_TagString: Untagged
@@ -2795,6 +2813,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383229617}
   m_CullTransparentMesh: 0
+--- !u!114 &383229621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383229617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d67bb14ceb2548bde7d89bb3cc33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 1844025621}
+  itemAttr: 3
+  itemText: {fileID: 170564247}
+  colorScript: {fileID: 1609467901}
 --- !u!1 &385841210
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,6 +5423,7 @@ GameObject:
   - component: {fileID: 733343681}
   - component: {fileID: 733343683}
   - component: {fileID: 733343682}
+  - component: {fileID: 733343684}
   m_Layer: 5
   m_Name: Board
   m_TagString: Untagged
@@ -5455,6 +5490,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733343680}
   m_CullTransparentMesh: 0
+--- !u!114 &733343684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733343680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d67bb14ceb2548bde7d89bb3cc33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 1844025621}
+  itemAttr: 1
+  itemText: {fileID: 565711560}
+  colorScript: {fileID: 1609467901}
 --- !u!1 &745647090
 GameObject:
   m_ObjectHideFlags: 0
@@ -6382,6 +6433,7 @@ GameObject:
   - component: {fileID: 873589846}
   - component: {fileID: 873589848}
   - component: {fileID: 873589847}
+  - component: {fileID: 873589849}
   m_Layer: 5
   m_Name: Landmine
   m_TagString: Untagged
@@ -6448,6 +6500,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873589845}
   m_CullTransparentMesh: 0
+--- !u!114 &873589849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873589845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d67bb14ceb2548bde7d89bb3cc33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 1844025621}
+  itemAttr: 2
+  itemText: {fileID: 1313417616}
+  colorScript: {fileID: 1609467901}
 --- !u!1 &886028251
 GameObject:
   m_ObjectHideFlags: 0
@@ -12709,9 +12777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e527c1830be0c418303d10f2edc8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  enableColor: {r: 0, g: 0, b: 0, a: 0}
-  unableColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.39215687}
+  enableColor: {r: 0, g: 1, b: 0, a: 0.39215687}
+  unableColor: {r: 1, g: 1, b: 0, a: 0.39215687}
 --- !u!114 &1609467902
 MonoBehaviour:
   m_ObjectHideFlags: 0

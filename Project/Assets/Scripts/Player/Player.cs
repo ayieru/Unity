@@ -73,6 +73,8 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     bool receiveDamageFrag = true;
     [SerializeField] float invincibleTime = 5.0f;
 
+    public GameObject m;
+
     // Get関数
     public int GetWeaponAmmoNum()
     {
@@ -213,6 +215,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
             receiveDamageFrag = false;
             currentHp -= damage;
             currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+            if (currentHp <= 0) m.GetComponent<UIManager>().GameOver();
             Invoke("ReceiveDamageFragOn", invincibleTime);
         }
     }

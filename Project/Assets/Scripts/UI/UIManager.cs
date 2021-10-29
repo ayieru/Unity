@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
         Max
     }
     public UI_State state;
+    public GameObject p;
+    public GameObject clear;
+    public GameObject gameover;
 
     //Panelオブジェクトをセットする
     [SerializeField] GameObject[] GOState = new GameObject[(int)UI_State.Max];
@@ -124,12 +127,24 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        p.SetActive(false);
         cursorLock = false;
+        gameover.SetActive(true);
+        for (int i = 0; i < (int)UI_State.Max; i++)
+        {
+            GOState[i].SetActive(false);
+        }
     }
 
     public void GameClear()
     {
+        p.SetActive(false);
         cursorLock = false;
+        clear.SetActive(true);
+        for (int i = 0; i < (int)UI_State.Max; i++)
+        {
+            GOState[i].SetActive(false);
+        }
     }
 
     private void UpdareCursorLock()
@@ -143,6 +158,4 @@ public class UIManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
-
-
 }

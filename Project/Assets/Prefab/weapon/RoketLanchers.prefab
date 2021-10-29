@@ -236,8 +236,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072780640201014819}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.95, y: 0.59, z: 0.59}
   m_Center: {x: 1.3, y: 0, z: 0}
@@ -434,6 +434,7 @@ MonoBehaviour:
   GO_firingPoint: {fileID: 1098176853133636149}
   magazine: {fileID: 1353355432645380060}
   shootRate: 1
+  MazzuleFlash: {fileID: 0}
   shot: {fileID: 8300000, guid: a17dacc6ec0434246a724bebfb5642f5, type: 3}
   reload: {fileID: 8300000, guid: 45c4785fa2728ad41b4b1996a62652af, type: 3}
 --- !u!82 &2376527914174051083

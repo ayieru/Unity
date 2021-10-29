@@ -25,7 +25,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     public Magazine magazine; //{ get; protected set; }
 
-    protected float power = 50;
+    protected float power;
     protected bool shootingFrag = false;
     protected bool shootFlag = true;
     protected float shootElapsedTime = 0;
@@ -41,9 +41,7 @@ public abstract class Weapon : MonoBehaviour
     protected float reloadTime;
 
     //マズルフラッシュ
-    bool MFActiveFrag = false;
-    float MFswitchTime = 0.1f;
-    [SerializeField] protected GameObject GOMazzuleFlash;
+    [SerializeField] protected ParticleSystem MazzuleFlash;
 
     //サウンド
     public AudioClip shot;
@@ -55,6 +53,7 @@ public abstract class Weapon : MonoBehaviour
         level = 0;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         magazine.level = level;
+        power = weaponData.damage[level];
         reloadTime = weaponData.reload[level];
         shootRate = weaponData.rate[level];
         audioSource = GetComponent<AudioSource>();
@@ -62,22 +61,11 @@ public abstract class Weapon : MonoBehaviour
 
     public void Reload()
     {
-        if(!reloadFrag)
+
+        if (!reloadFrag)
         {
             audioSource.PlayOneShot(reload);
             reloadFrag = true;
-        }
-    }
-
-    protected void SwitchMuzzleFlash(bool frag)
-    {
-        GOMazzuleFlash.SetActive(frag);
-    }
-    protected void MuzzleFlashUpdate()
-    {
-        if(!shootingFrag)
-        {
-            GOMazzuleFlash.SetActive(false);
         }
     }
 

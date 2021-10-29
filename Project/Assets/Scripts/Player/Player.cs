@@ -155,11 +155,14 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
                 {
                     ShootEnd();
                 }
+
                 if(Input.GetKeyDown(KeyCode.R) || weapon[currentWeaponNum].script.magazine.currentAmmoNum == 0)
                 {
+                    ShootEnd();
                     Reload();
                 }
                 break;
+
             case Mode.Item:
                 if (Input.GetMouseButtonDown(0))
                 {

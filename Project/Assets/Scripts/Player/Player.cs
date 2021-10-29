@@ -177,6 +177,35 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         MovementFixedUpdate();
     }
 
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        //アイテムとの当たり判定
+        if(collisionInfo.gameObject.CompareTag("Turret"))
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                if(0 < item[(int)EItem.Turret].currentNum)
+                {
+                    GameObject GOColItem = collisionInfo.gameObject.transform.GetChild(0).gameObject;
+                    InstallFixed();
+                    GOColItem.SetActive(true);
+                }
+            }
+        }
+        else if(collisionInfo.gameObject.CompareTag("Board"))
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                if(0 < item[(int)EItem.Board].currentNum)
+                {
+                    GameObject GOColItem = collisionInfo.gameObject.transform.GetChild(0).gameObject;
+                    InstallFixed();
+                    GOColItem.SetActive(true);
+                }
+            }
+        }
+    }
+
     public void ReceiveDamage(int damage)
     {
         if(receiveDamageFrag)
@@ -206,30 +235,60 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         weapon[currentWeaponNum].script.Reload();
     }
 
-    void Install()
+    void InstallFixed()
     {
-        item[(int)currentItemAttr].script.Install();
-        item[(int)currentItemAttr].currentNum = ZeroClampNum(item[(int)currentItemAttr].currentNum, false);
-        int tmpNum = item[(int)currentItemAttr].currentNum;
-        ItemInstantiate(currentItemAttr);
-        item[(int)currentItemAttr].currentNum = tmpNum;
-        if(item[(int)currentItemAttr].currentNum <= 0)
+        if(currentItemAttr == EItem.Board || currentItemAttr == EItem.Turret)
         {
-            currentItemAttr++;
-            if(currentItemAttr >= EItem.Max)
+            item[(int)currentItemAttr].currentNum = ZeroClampNum(item[(int)currentItemAttr].currentNum, false);
+            if(item[(int)currentItemAttr].currentNum <= 0)
             {
-                currentItemAttr = EItem.Barricade;
+                currentItemAttr++;
+                if(currentItemAttr >= EItem.Max)
+                {
+                    currentItemAttr = EItem.Barricade;
+                }
+                if(item[(int)currentItemAttr].currentNum > 0)
+                {
+                    item[(int)currentItemAttr].GO.SetActive(true);
+                }
             }
-            if(item[(int)currentItemAttr].currentNum > 0)
+            else
             {
-                item[(int)currentItemAttr].GO.SetActive(true);
+                if(item[(int)currentItemAttr].currentNum > 0)
+                {
+                    item[(int)currentItemAttr].GO.SetActive(true);
+                }
             }
         }
-        else
+    }
+
+    void Install()
+    {
+        if(currentItemAttr != EItem.Board && currentItemAttr != EItem.Turret)
         {
-            if(item[(int)currentItemAttr].currentNum > 0)
+            item[(int)currentItemAttr].script.Install();
+            item[(int)currentItemAttr].currentNum = ZeroClampNum(item[(int)currentItemAttr].currentNum, false);
+            int tmpNum = item[(int)currentItemAttr].currentNum;
+            ItemInstantiate(currentItemAttr);
+            item[(int)currentItemAttr].currentNum = tmpNum;
+            if(item[(int)currentItemAttr].currentNum <= 0)
             {
-                item[(int)currentItemAttr].GO.SetActive(true);
+                currentItemAttr++;
+                if(currentItemAttr >= EItem.Max)
+                {
+                    currentItemAttr = EItem.Barricade;
+                }
+                if(item[(int)currentItemAttr].currentNum > 0)
+                {
+                    item[(int)currentItemAttr].GO.SetActive(true);
+                }
+            }
+            else
+            {
+                if(item[(int)currentItemAttr].currentNum > 0)
+                {
+                    item[(int)currentItemAttr].GO.SetActive(true);
+                }
             }
         }
     }

@@ -19,4 +19,9 @@ public class EventManager : MonoBehaviour
     {
 
     }
+
+    public void End()
+    {
+
+    }
 }

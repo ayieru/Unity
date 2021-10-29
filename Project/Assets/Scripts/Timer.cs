@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     private Text t;
     private bool b = false;
 
+    public GameObject es;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class Timer : MonoBehaviour
         if (gameTime <= 0)
         {
             gameTime = 0f;
+            es.GetComponent<UIManager>().GameClear();
         }
     }
     private void OnDisable()

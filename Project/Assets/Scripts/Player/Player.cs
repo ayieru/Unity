@@ -25,9 +25,9 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
     private const int weaponCount = 2;
     public enum EWeapon
     {
-        Handgun,
-        Shotgun,
         AssaultRifle,
+        Shotgun,
+        Handgun,
         RocketLauncher,
         Max
     }

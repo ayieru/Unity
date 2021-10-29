@@ -4939,7 +4939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2016105221}
         m_MethodName: LoadTitle
         m_Mode: 1
         m_Arguments:
@@ -7402,6 +7402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTime: 120
+  es: {fileID: 0}
 --- !u!114 &924154477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13233,6 +13234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  p: {fileID: 0}
+  clear: {fileID: 0}
+  gameover: {fileID: 0}
   GOState:
   - {fileID: 1654172242}
   - {fileID: 1792013345}
@@ -15180,6 +15184,7 @@ MonoBehaviour:
   DItem: {fileID: 11400000, guid: 28682e9378eb915419e432ad1f5132b8, type: 2}
   haveWeaponNum: 00000000000000000000000000000000
   invincibleTime: 5
+  m: {fileID: 0}
   cam: {fileID: 1216585978}
   walkSpeed: 6
   dashSpeedRate: 2
@@ -15435,7 +15440,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2016105221}
         m_MethodName: LoadTitle
         m_Mode: 1
         m_Arguments:
@@ -16851,7 +16856,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2016105221}
         m_MethodName: ReLoadScene
         m_Mode: 1
         m_Arguments:

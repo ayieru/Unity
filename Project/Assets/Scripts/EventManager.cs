@@ -12,15 +12,10 @@ public class EventManager : MonoBehaviour
 
     public void LoadTitle()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void LoadNextStage()
-    {
-
-    }
-
-    public void End()
     {
 
     }

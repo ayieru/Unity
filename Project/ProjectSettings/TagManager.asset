@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Workbench
   - Item
+  - Turret
+  - Board
   layers:
   - Default
   - TransparentFX

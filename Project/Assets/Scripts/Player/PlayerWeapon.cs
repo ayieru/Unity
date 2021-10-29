@@ -6,7 +6,7 @@ public partial class Player
 {
     void WeaponInit()
     {
-        WeaponInstantite(DAssaultRifle);
+        WeaponInstantite(DHandgun);
         WeaponInstantite(DShotgun);
 
         weapon[1].GO.SetActive(false);

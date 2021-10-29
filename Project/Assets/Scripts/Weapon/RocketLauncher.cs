@@ -26,7 +26,7 @@ public class RocketLauncher : Weapon
 
     public override void Shoot()
     {
-        if(shootFlag && !reloadFlag)
+        if(shootFlag && !reloadFrag)
         {
             if(magazine.LoadGun())
             {
@@ -37,6 +37,7 @@ public class RocketLauncher : Weapon
                 Vector3 direction = GetFPForward();
                 // 弾の発射方向にnewBallのz方向(ローカル座標)を入れ、弾オブジェクトのrigidbodyに衝撃力を加える
                 magazine.bullet.gameObject.GetComponent<Rigidbody>().AddForce(direction * power, ForceMode.Impulse);
+                magazine.bullet.GetComponent<Bullet>().SetPower((int)power);
                 magazine.bullet.gameObject.GetComponent<Rigidbody>().AddForce(direction * 0.01f, ForceMode.Impulse);
                 // 出現させたボールの名前を"bullet"に変更
                 magazine.bullet.gameObject.GetComponent<Bullet>().playerScript = playerScript;
@@ -48,13 +49,13 @@ public class RocketLauncher : Weapon
 
     public override void ReloadUpdate()
     {
-        if(reloadFlag == true){
+        if(reloadFrag == true){
             reloadElapsedTime += Time.deltaTime;
             if(reloadElapsedTime > reloadTime)
             {
                 audioSource.PlayOneShot(reload);
                 reloadElapsedTime = 0;
-                reloadFlag = false;
+                reloadFrag = false;
                 Instantiate(magazine.bullet.gameObject, GetFPPosition(), magazine.bullet.transform.rotation);
                 magazine.LoadMagazine();
             }

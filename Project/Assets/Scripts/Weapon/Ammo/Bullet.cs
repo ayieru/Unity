@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int power;
-    public int headpower;
+    public int power = 10;
 
     public Player playerScript;
 

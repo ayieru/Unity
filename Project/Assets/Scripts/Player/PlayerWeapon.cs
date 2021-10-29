@@ -6,8 +6,8 @@ public partial class Player
 {
     void WeaponInit()
     {
-        WeaponInstantite(DHandgun);
-        WeaponInstantite(DShotgun);
+        WeaponInstantite(DAssaultRifle, EWeapon.AssaultRifle);
+        WeaponInstantite(DShotgun, EWeapon.Shotgun);
 
         weapon[1].GO.SetActive(false);
     }
@@ -39,7 +39,7 @@ public partial class Player
         item[(int)itemAttr].GO.SetActive(false);
     }
 
-    void WeaponInstantite(WeaponData DWeapon)
+    void WeaponInstantite(WeaponData DWeapon, EWeapon weaponName)
     {
         GameObject tmpGO;
 
@@ -48,11 +48,58 @@ public partial class Player
             GO = tmpGO,
             script = tmpGO.GetComponent<Weapon>()
         });
+        haveWeaponNum[(int)weaponName] += 1;
+    }
+    
+    public void AddItem(EItem itemAttr)
+    {
+        item[(int)itemAttr].currentNum += 1;
+        if(item[(int)itemAttr].currentNum > item[(int)itemAttr].maxNum)
+        {
+            item[(int)itemAttr].currentNum = item[(int)itemAttr].maxNum;
+        }
     }
 
-    public void BuyItem(EItem itemAttr)
+    public void BuyBarricade()
     {
-        item[(int)itemAttr].currentNum++;
+        if(points >= DItem.cost[(int)EItem.Barricade])
+        {
+            AddItem(EItem.Barricade);
+            points -= DItem.cost[(int)EItem.Barricade];
+        }
+    }
+    public void BuyBoard()
+    {
+        if(points >= DItem.cost[(int)EItem.Board])
+        {
+            AddItem(EItem.Board);
+            points -= DItem.cost[(int)EItem.Board];
+        }
+    }
+    public void BuyLandmine()
+    {
+        if(points >= DItem.cost[(int)EItem.Landmine])
+        {
+            AddItem(EItem.Landmine);
+            points -= DItem.cost[(int)EItem.Landmine];
+        }
+    }
+
+    public void BuyTurret()
+    {
+        if(points >= DItem.cost[(int)EItem.Turret])
+        {
+            AddItem(EItem.Turret);
+            points -= DItem.cost[(int)EItem.Turret];
+        }
+    }
+    public void BuyPortion()
+    {
+        if(points >= DItem.cost[4])
+        {
+            HealHp();
+            points -= DItem.cost[4];
+        }
     }
     
     public void BuyHandgun()
@@ -83,4 +130,50 @@ public partial class Player
         weapon[currentWeaponNum].script = weapon[currentWeaponNum].GO.GetComponent<Weapon>();
         points -= DRoketLancher.cost[0];
     }
+
+    public void UpdateHandgun(int level)
+    {
+        if(level <= DHandgun.level.Length)
+        {
+            if(points >= DHandgun.cost[level - 1])
+            {
+                weapon[currentWeaponNum].script.UPLevel();
+                points -= DHandgun.cost[level - 1];
+            }
+        }
+    }
+    public void UpdateShotgun(int level)
+    {
+        if(level <= DHandgun.level.Length)
+        {
+            if(points >= DHandgun.cost[level - 1])
+            {
+                weapon[currentWeaponNum].script.UPLevel();
+                points -= DHandgun.cost[level - 1];
+            }
+        }
+    }
+    public void UpdateAssaultRifle(int level)
+    {
+        if(level <= DHandgun.level.Length)
+        {
+            if(points >= DHandgun.cost[level - 1])
+            {
+                weapon[currentWeaponNum].script.UPLevel();
+                points -= DHandgun.cost[level - 1];
+            }
+        }
+    }
+    public void UpdateRoketLancher(int level)
+    {
+        if(level <= DHandgun.level.Length)
+        {
+            if(points >= DHandgun.cost[level - 1])
+            {
+                weapon[currentWeaponNum].script.UPLevel();
+                points -= DHandgun.cost[level - 1];
+            }
+        }
+    }
+
 }

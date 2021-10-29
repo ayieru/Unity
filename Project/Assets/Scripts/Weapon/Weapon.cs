@@ -50,6 +50,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected void Awake()
     {
+        level = 0;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         magazine.level = level;
         power = weaponData.damage[level];
@@ -60,6 +61,7 @@ public abstract class Weapon : MonoBehaviour
 
     public void Reload()
     {
+
         if (!reloadFrag)
         {
             audioSource.PlayOneShot(reload);

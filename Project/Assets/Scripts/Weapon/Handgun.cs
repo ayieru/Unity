@@ -27,7 +27,9 @@ public class Handgun : Weapon
 
     public override void Shoot()
     {
+
         if (Input.GetMouseButtonDown(0))
+
         {
             if (shootFlag && !reloadFrag)
             {

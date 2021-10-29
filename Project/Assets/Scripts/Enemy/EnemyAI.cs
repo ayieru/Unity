@@ -205,12 +205,22 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     {
         if (search)
         {
+            //アイテム
             var v = c.gameObject.GetComponent<IReceiveDamage>();
-
             if (c != null && v != null)
             {
                 v.ReceiveDamage(damage);
+
                 Debug.Log(c.ToString() +"は" + damage + "ダメージくらった");
+            }
+
+            //プレイヤー
+            var g = c.gameObject.GetComponent<IPlayerReceiveDamage>();
+            if (c != null && g != null)
+            {
+                g.ReceiveDamage(damage);
+
+                Debug.Log(c.ToString() + "は" + damage + "ダメージくらった");
             }
             search = false;
         }

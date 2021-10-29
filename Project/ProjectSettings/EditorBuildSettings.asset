@@ -6,30 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: b0f6a4322f60a1a4986b0ee22eb6e1cc
-  - enabled: 1
-    path: Assets/Scenes/StageSelect.unity
-    guid: 8af40fa1a9847384c8be00c09986cbdf
-  - enabled: 1
-    path: Assets/Scenes/stage1.unity
-    guid: 17383e3d47b07fd46b9455dcf60805b4
-  - enabled: 1
-    path: Assets/Scenes/stage2.unity
-    guid: 4949522d7add6fc42995134deffe1073
-  - enabled: 1
-    path: Assets/Scenes/stage3.unity
-    guid: 3649b45750d926846a537988bd538502
-  - enabled: 1
-    path: Assets/Scenes/stage4.unity
-    guid: 2f018a2675f25ec4e931cabfc24188f3
-  - enabled: 1
-    path: Assets/Scenes/stage5.unity
-    guid: edaf9905cb8f257468903291525a7a95
-  - enabled: 1
-    path: Assets/Scenes/Result.unity
-    guid: a2a3570cf70cd8a4a873fce0ed7c9f13
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: ce44706ec664f1542911f96e943e78cc
+    path: Assets/Scenes/S_ayier.unity
+    guid: 1071e7a20f6245a439151a186a1b4e0a
   m_configObjects: {}

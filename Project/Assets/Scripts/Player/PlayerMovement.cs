@@ -5,19 +5,46 @@ using UnityEngine;
 public partial class Player
 {
     Rigidbody rb;
+    float playerHeight = 2;
 
-    //移動速度関係
-    Vector3 velocity;
+    //移動変数
+    Vector3 moveDirection;
+    Vector3 slopeMoveDirection;
     Vector3 accelation;
     [SerializeField] float walkSpeed;
+    float dashRate;
     [SerializeField] float dashSpeedRate;
     [SerializeField] float jumpForce;
-    bool isGround = false;
 
+    [SerializeField] LayerMask groundMask;
+    bool isGround;
+    float groundDistance = 0.4f;
+
+    float moveMultiplier = 10f;
+    float airMultiplier = 0.4f;
     float groundDrag = 6f;
     float airDrag = 2f;
 
     public Vector3 localGravity;
+
+    // slope
+    RaycastHit slopeHit;
+
+    private bool OnSlope()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.5f))
+        {
+            if(slopeHit.normal != Vector3.up)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+    }
 
     void MovementStart()
     {
@@ -28,16 +55,20 @@ public partial class Player
     void MovementUpdate()
     {
         SetMove();
+        ControlDrag();
+        Jump();
+
+        //slope
+        slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal);
     }
 
     void MovementFixedUpdate()
     {
-        SetLocalGravity();
+        Move();
     }
 
     private void SetMove()
     {
-        float dashRate;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             dashRate = dashSpeedRate;
@@ -47,36 +78,43 @@ public partial class Player
             dashRate = 1;
         }
 
-        if (rb.velocity.y < 0.01 && -0.01 < rb.velocity.y )
-        {
-            isGround = true;
-        }
-        else
-        {
-            isGround = false;
-            Debug.Log(isGround);
-        }
+        isGround = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDistance, groundMask);
 
-        float currentSpeed = walkSpeed * dashRate;
+        //移動方向取得
         Vector3 forward = cam.transform.forward;
         Vector3 right = cam.transform.right;
-        Vector3 up = transform.up; 
         forward.y = 0f;
         right.y = 0f;
         
-        forward = Input.GetAxisRaw("Vertical") * forward * currentSpeed;
-        right = Input.GetAxisRaw("Horizontal") * right * currentSpeed;
+        forward = Input.GetAxisRaw("Vertical") * forward;
+        right = Input.GetAxisRaw("Horizontal") * right;
 
-        //ControlDrag();
-        Jump();
-        velocity = forward + right;
-        Debug.Log(rb.velocity);
-        rb.AddForce(velocity.normalized, ForceMode.Impulse);
+        moveDirection = forward + right;
+        //transform.position += velocity.normalized;
+    }
+
+    void Move()
+    {
+        //スピード
+        float currentSpeed = walkSpeed * dashRate;
+
+        if(isGround && !OnSlope())
+        {
+            rb.AddForce(moveDirection.normalized * currentSpeed * moveMultiplier, ForceMode.Acceleration);
+        }
+        else if(isGround && OnSlope())
+        {
+            rb.AddForce(slopeMoveDirection.normalized * currentSpeed * moveMultiplier, ForceMode.Acceleration);
+        }
+        else if(!isGround)
+        {
+            rb.AddForce(moveDirection.normalized * currentSpeed * airMultiplier, ForceMode.Acceleration);
+        }
     }
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }

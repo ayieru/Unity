@@ -8,7 +8,7 @@ public partial class Player
     Quaternion cameraRot, playerRot;
     // 感度
     float xSensitivity = 3f, ySensitivity = 3f;
-    //向きの制限
+    // 上下の振り向き幅
     float minX = -90f, maxX = 90f;
 
     void CameraStart()

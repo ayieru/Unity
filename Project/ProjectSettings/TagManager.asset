@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Bullet
   - Workbench
+  - Item
+  - Turret
+  - Board
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ammo
+  - Ground
   - 
   - 
   - 

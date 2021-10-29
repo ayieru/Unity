@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80864f4571f9444fa7946d68c2ff9f3, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1341594742123968545, guid: 4eefc05eed171874ba5484f4bc61aad8, type: 3}
+  image: {fileID: 0}
+  weaponName: "\u30B7\u30E7\u30C3\u30C8\u30AC\u30F3"
+  level: 0100000002000000
+  damage: 6400000064000000
+  headShot: c8000000c8000000
+  ammo: 0600000008000000
+  cost: c8000000fa000000
+  reload:
+  - 1
+  - 0.8
+  rate:
+  - 0.1
+  add: 000000000000000000000000

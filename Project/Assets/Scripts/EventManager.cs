@@ -17,6 +17,6 @@ public class EventManager : MonoBehaviour
 
     public void LoadNextStage()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

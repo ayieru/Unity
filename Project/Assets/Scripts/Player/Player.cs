@@ -71,7 +71,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     // ダメージを受ける状態フラグ
     bool receiveDamageFrag = true;
-    [SerializeField] float invincibleTime = 5.0f;
+    [SerializeField] float invincibleTime = 1.0f;
 
     public GameObject m;
 
@@ -219,6 +219,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
             Invoke("ReceiveDamageFragOn", invincibleTime);
         }
     }
+
     void ReceiveDamageFragOn()
     {
         receiveDamageFrag = true;

@@ -39,18 +39,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Return))
-        {
-            SetUIState(UI_State.ShopChoice);
-            cursorLock = false;
-            UpdareCursorLock();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ReturnUI();
         }
-        UpdareCursorLock();
+        UpdateCursorLock();
     }
 
     // UI画面変更
@@ -62,7 +55,7 @@ public class UIManager : MonoBehaviour
     }
 
     //UI戻るときの関数
-    void ReturnUI()
+    public void ReturnUI()
     {
         if(state != UI_State.Player){
             if(state == UI_State.WeaponMenu || state == UI_State.ObjectShop)
@@ -83,6 +76,7 @@ public class UIManager : MonoBehaviour
         else 
         {
             cursorLock = false;
+            UpdateCursorLock();
         }        
     }
 
@@ -91,6 +85,14 @@ public class UIManager : MonoBehaviour
     {
         cursorLock = true;
         SetUIState(UI_State.Player);
+    }
+
+    //作業台
+    public void SetWorkbench()
+    {
+        SetUIState(UI_State.ShopChoice);
+        cursorLock = false;
+        UpdateCursorLock();
     }
 
     //武器or配置物選択画面
@@ -127,9 +129,10 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
-        p.SetActive(false);
+        Time.timeScale = 0;
         cursorLock = false;
         gameover.SetActive(true);
+
         for (int i = 0; i < (int)UI_State.Max; i++)
         {
             GOState[i].SetActive(false);
@@ -138,16 +141,17 @@ public class UIManager : MonoBehaviour
 
     public void GameClear()
     {
-        p.SetActive(false);
+        Time.timeScale = 0;
         cursorLock = false;
         clear.SetActive(true);
+
         for (int i = 0; i < (int)UI_State.Max; i++)
         {
             GOState[i].SetActive(false);
         }
     }
 
-    private void UpdareCursorLock()
+    private void UpdateCursorLock()
     {
         if (cursorLock)
         {
@@ -157,5 +161,10 @@ public class UIManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public bool isCursorLock()
+    {
+        return cursorLock;
     }
 }

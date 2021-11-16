@@ -10,7 +10,6 @@ public class ButtonEx : MonoBehaviour
     [SerializeField] GameObject preData;
     [SerializeField] GameObject updateData;
     [SerializeField] Text text;
-    [SerializeField] GameObject slot;
 
     private Button button;
     private GameObject pre;
@@ -66,32 +65,5 @@ public class ButtonEx : MonoBehaviour
     void MouseExit()
     {
         P_Update.SetActive(false);
-    }
-
-
-    //クリックされたときの処理
-    public void Barricade()
-    {
-
-    }
-
-    public void Board()
-    {
-        slot.GetComponent<ItemSlotUI>().SetNum(text.text);
-    }
-
-    public void Landmine()
-    {
-        slot.GetComponent<ItemSlotUI>().SetNum(text.text);
-    }
-
-    public void Turret()
-    {
-        slot.GetComponent<ItemSlotUI>().SetNum(text.text);
-    }
-
-    public void Portion()
-    {
-        slot.GetComponent<ItemSlotUI>().SetNum(text.text);
     }
 }

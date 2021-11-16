@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     private int damage;
     private int point;
     private int type;
-    private float t = 0.3f;
+    private float t = 0.1f;
     private bool search = false;
     private float NEAR_DIR = 20f;
 
@@ -232,7 +232,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         if (dir < 15)
         {
             transform.LookAt(p.transform);
-            Invoke(nameof(Throw), 3f);
+            Invoke(nameof(Throw), 2f);
         }
         else
         {

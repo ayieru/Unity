@@ -11,24 +11,30 @@ public partial class Player
     // 上下の振り向き幅
     float minX = -90f, maxX = 90f;
 
+    private UIManager UImanager;
+
     void CameraStart()
     {
+        UImanager = GameObject.Find("UIManager").GetComponent<UIManager>();
         cameraRot = cam.transform.localRotation;
         playerRot = transform.localRotation;
     }
 
     void CameraUpdate()
     {
-        float xRot = Input.GetAxis("Mouse X") * xSensitivity;
-        float yRot = Input.GetAxis("Mouse Y") * ySensitivity;
+        if (UImanager.isCursorLock())
+        {
+            float xRot = Input.GetAxis("Mouse X") * xSensitivity;
+            float yRot = Input.GetAxis("Mouse Y") * ySensitivity;
 
-        cameraRot *= Quaternion.Euler(-yRot, 0, 0);
-        playerRot *= Quaternion.Euler(0, xRot, 0);
+            cameraRot *= Quaternion.Euler(-yRot, 0, 0);
+            playerRot *= Quaternion.Euler(0, xRot, 0);
 
-        cameraRot = ClampRotation(cameraRot);
+            cameraRot = ClampRotation(cameraRot);
 
-        cam.transform.localRotation = cameraRot;
-        transform.localRotation = playerRot;
+            cam.transform.localRotation = cameraRot;
+            transform.localRotation = playerRot;
+        }
     }
 
     public Quaternion ClampRotation(Quaternion quat)

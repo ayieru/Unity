@@ -10,7 +10,10 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-
+        if (playerScript == null)
+        {
+            playerScript = GameObject.Find("Player").GetComponent<Player>();
+        }
     }
 
     void Update()

@@ -30,20 +30,31 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         state = UI_State.Player;
+
         GOState[(int)state].SetActive(true);
+
         for(int i = 1; i < (int)UI_State.Max; i++)
         {
             GOState[i].SetActive(false);
         }
+
+        UpdateCursorLock();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ReturnUI();
+            if(state != UI_State.Player)
+            {
+                ReturnUI();
+            }
+            else
+            {
+                cursorLock = true;
+                UpdateCursorLock();
+            }
         }
-        UpdateCursorLock();
     }
 
     // UI画面変更
@@ -62,37 +73,37 @@ public class UIManager : MonoBehaviour
             {
                 SetUIState(UI_State.ShopChoice);
             }
-            else if(state == UI_State.WeaponPurchase || 
-                state == UI_State.WeaponUpdate)
+            else if(state == UI_State.WeaponPurchase || state == UI_State.WeaponUpdate)
             {
                 SetUIState(UI_State.WeaponMenu);
             }
             else
             {
-                UI_State tmpState = this.state - 1;
-                SetUIState(tmpState);
+                //プレイヤーUIセット
+                SetUIState(this.state - 1);
+
+                cursorLock = true;
+                UpdateCursorLock();
             }
         }
-        else 
-        {
-            cursorLock = false;
-            UpdateCursorLock();
-        }        
     }
 
     //プレイヤー画面
     public void SetPlayerUI()
     {
         cursorLock = true;
+        UpdateCursorLock();
+
         SetUIState(UI_State.Player);
     }
 
     //作業台
     public void SetWorkbench()
     {
-        SetUIState(UI_State.ShopChoice);
         cursorLock = false;
         UpdateCursorLock();
+
+        SetUIState(UI_State.ShopChoice);
     }
 
     //武器or配置物選択画面
@@ -130,7 +141,10 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
+
         cursorLock = false;
+        UpdateCursorLock();
+
         gameover.SetActive(true);
 
         for (int i = 0; i < (int)UI_State.Max; i++)
@@ -142,7 +156,10 @@ public class UIManager : MonoBehaviour
     public void GameClear()
     {
         Time.timeScale = 0;
+
         cursorLock = false;
+        UpdateCursorLock();
+
         clear.SetActive(true);
 
         for (int i = 0; i < (int)UI_State.Max; i++)

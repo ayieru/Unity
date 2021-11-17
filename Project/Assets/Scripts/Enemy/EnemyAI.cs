@@ -26,9 +26,10 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     private int damage;
     private int point;
     private int type;
-    private float t = 0.1f;
+    private float t = 0.5f;
     private bool search = false;
-    private float NEAR_DIR = 20f;
+    private float NEAR_DIR = 10f;
+    private float PlayerDis = 1f;
 
     void Start()
     {
@@ -87,12 +88,14 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
 
+        agent.stoppingDistance = PlayerDis;
 
         agent.speed *= speed;
     }
 
     private void UpdateNav()
     {
+        transform.LookAt(p.transform);
         agent.SetDestination(p.transform.position);
     }
 
@@ -100,21 +103,13 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
     {
         AiMainRoutine();
         aiState = nextState;
-
     }
 
     private void AiMainRoutine()
     {
         if (search)
         {
-            if (aiState == EnemyAiState.IDLE)
-            {
-                nextState = EnemyAiState.ATTACK;
-            }
-            else
-            {
-                nextState = EnemyAiState.IDLE;
-            }
+            nextState = EnemyAiState.ATTACK;
         }
         else
         {
@@ -222,6 +217,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
 
                 Debug.Log(c.ToString() + "は" + damage + "ダメージくらった");
             }
+
             search = false;
         }
     }
@@ -232,7 +228,7 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
         if (dir < 15)
         {
             transform.LookAt(p.transform);
-            Invoke(nameof(Throw), 2f);
+            Invoke(nameof(Throw), 1f);
         }
         else
         {
@@ -256,7 +252,6 @@ public class EnemyAI : MonoBehaviour, IReceiveDamage, IAddPoints
 
     private void Throw()
     {
-        agent.SetDestination(transform.position);
         transform.LookAt(p.transform);
         GameObject t = transform.Find("target").gameObject;
         Instantiate(add, t.transform.position, transform.rotation);

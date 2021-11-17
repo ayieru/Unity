@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -436162607862297477}
   - component: {fileID: 8391381156986720044}
   - component: {fileID: 2983132192100896910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Item
   m_Icon: {fileID: 0}

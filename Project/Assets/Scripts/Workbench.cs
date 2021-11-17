@@ -36,7 +36,17 @@ public class Workbench : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        UImanager.ReturnUI();
-        state = false;
+        if (other.CompareTag("Player"))
+        {
+            if (UImanager.state != UIManager.UI_State.Player )
+            {
+                state = false;
+                UImanager.SetPlayerUI();
+            }
+            else
+            {
+                state = false;
+            }
+        }
     }
 }

@@ -71,9 +71,9 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
 
     // ダメージを受ける状態フラグ
     bool receiveDamageFrag = true;
-    [SerializeField] float invincibleTime = 1.0f;
+    private float invincibleTime;
 
-    public GameObject m;
+    private UIManager m;
 
     // Get関数
     public int GetWeaponAmmoNum()
@@ -102,6 +102,10 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         WeaponInit();
         ItemInit();
 
+        m = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+        invincibleTime = 2f;
+
         maxHp = 100;
         currentHp = maxHp;
 
@@ -109,7 +113,6 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         CameraStart();
     }
 
-    //
     int ZeroClampNum(int num, bool increace)
     {
         if(increace){
@@ -131,7 +134,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
             Debug.Log(mode);
         }
         // 切り替え
-        if(0 < Input.GetAxis("Mouse ScrollWheel"))
+        if(0 < Input.GetAxis("Mouse ScrollWheel")|| 0 > Input.GetAxis("Mouse ScrollWheel"))
         {
             switch (mode)
             {
@@ -149,7 +152,7 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         switch(mode)
         {
             case Mode.Weapon:
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && m.state == UIManager.UI_State.Player)
                 {
                     Shoot();
                 }
@@ -172,6 +175,8 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
                 }
                 break;
         }
+
+        if (currentHp <= 0) m.GetComponent<UIManager>().GameOver();
     }
 
     private void FixedUpdate()
@@ -215,8 +220,9 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
             receiveDamageFrag = false;
             currentHp -= damage;
             currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-            if (currentHp <= 0) m.GetComponent<UIManager>().GameOver();
-            Invoke("ReceiveDamageFragOn", invincibleTime);
+            Invoke("ReceiveDamageFragOn",invincibleTime);
+
+            Debug.Log("プレイヤーは" + damage.ToString() + "ダメージを食らった 残りHP" + currentHp.ToString() );
         }
     }
 

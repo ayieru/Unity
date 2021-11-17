@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Turret
   - Board
+  - Graund
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - Ammo
   - Ground
-  - 
-  - 
+  - Item
+  - Player
   - 
   - 
   - 

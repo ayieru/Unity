@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardCollision : MonoBehaviour
+public class TurretCollision : MonoBehaviour
 {
-    public GameObject Board;
+    public GameObject turret;
 
     private void Start()
     {
-        Board.SetActive(false);
+        turret.SetActive(false);
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            Board.SetActive(true);
+            turret.SetActive(true);
         }
     }
 }

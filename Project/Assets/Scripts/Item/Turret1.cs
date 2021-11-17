@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board : MonoBehaviour,IReceiveDamage
+public class Turret1 : MonoBehaviour,IReceiveDamage
 {
     public ItemData data;
     private int hp;

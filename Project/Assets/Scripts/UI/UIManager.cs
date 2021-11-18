@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
         state = UI_State.Player;
 
         GOState[(int)state].SetActive(true);
+        clear.SetActive(false);
+        gameover.SetActive(false);
 
         for(int i = 1; i < (int)UI_State.Max; i++)
         {

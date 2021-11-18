@@ -189,26 +189,16 @@ public partial class Player : MonoBehaviour, IPlayerReceiveDamage
         //アイテムとの当たり判定
         if(collisionInfo.gameObject.CompareTag("Turret"))
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(KeyCode.Alpha4))
             {
-                if(0 < item[(int)EItem.Turret].currentNum)
-                {
-                    GameObject GOColItem = collisionInfo.gameObject.transform.GetChild(0).gameObject;
-                    InstallFixed();
-                    GOColItem.SetActive(true);
-                }
+                collisionInfo.gameObject.GetComponent<TurretCollision>().SetItem();
             }
         }
         else if(collisionInfo.gameObject.CompareTag("Board"))
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(KeyCode.Alpha2))
             {
-                if(0 < item[(int)EItem.Board].currentNum)
-                {
-                    GameObject GOColItem = collisionInfo.gameObject.transform.GetChild(0).gameObject;
-                    InstallFixed();
-                    GOColItem.SetActive(true);
-                }
+                collisionInfo.gameObject.GetComponent<BoardCollision>().SetItem();
             }
         }
     }

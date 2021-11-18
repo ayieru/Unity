@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8766305348716470600}
   - component: {fileID: 7704249673098212200}
   m_Layer: 0
-  m_Name: Collision
-  m_TagString: Untagged
+  m_Name: BoardCollision
+  m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

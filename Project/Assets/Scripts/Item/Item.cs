@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void Install()
     {
         this.gameObject.GetComponent<Collider>().isTrigger = false;

@@ -10,12 +10,8 @@ public class TurretCollision : MonoBehaviour
     {
         turret.SetActive(false);
     }
-
-    void OnTriggerStay(Collider other)
+    public void SetItem()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            turret.SetActive(true);
-        }
+        turret.SetActive(true);
     }
 }

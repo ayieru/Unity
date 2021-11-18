@@ -11,11 +11,8 @@ public class BoardCollision : MonoBehaviour
         Board.SetActive(false);
     }
 
-    void OnTriggerStay(Collider other)
+    public void SetItem()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            Board.SetActive(true);
-        }
+        Board.SetActive(true);
     }
 }

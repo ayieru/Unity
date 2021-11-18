@@ -26,6 +26,8 @@ public class Turret : MonoBehaviour ,IReceiveDamage
 
     private void Start()
     {
+        this.gameObject.SetActive(false);
+
         hp = turret.hp[3];
         audioSource = GetComponent<AudioSource>();
         InvokeRepeating(nameof(UpdateAI), 0f, 0.5f);
@@ -110,8 +112,7 @@ public class Turret : MonoBehaviour ,IReceiveDamage
         newAmmo.GetComponent<Rigidbody>().AddForce(direction * 50, ForceMode.Impulse);
         // 出現させたボールの名前を"bullet"に変更
         newAmmo.name = ammo.gameObject.name;
-        // 出現させたボールを0.8秒後に消す
-        Destroy(newAmmo, 0.8f);
+        Destroy(newAmmo, 1f);
     }
 
     public bool ReceiveDamage(int Pdamage)

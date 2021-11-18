@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1aeb0b522a00447a1157302dd0bc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 8245624770100081822, guid: 2e564ff08a562ad4ca327f947bf1bac9, type: 3}
-  NEAR_DIR: 30
+  ammo: {fileID: 7612487367726854789, guid: ab513bbe897fbaa47ad1bed1786da721, type: 3}
+  NEAR_DIR: 20
   sound: {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   turret: {fileID: 11400000, guid: 28682e9378eb915419e432ad1f5132b8, type: 2}
 --- !u!82 &2983132192100896910

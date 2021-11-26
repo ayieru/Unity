@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  bullet: {fileID: 1427769466033567178, guid: c6e63594d35e15440aa131889a21f650, type: 3}
+  bullet: {fileID: 4467628081615226060, guid: ee5aa0783c987c346be22cdc7ccf3a1e, type: 3}
   shell: {fileID: 2806376299694654174, guid: 67661568b16e49f4299e66038111d11d, type: 3}
   weaponData: {fileID: 11400000, guid: f67c63201aa357c49bcb70fd150d71f9, type: 2}
 --- !u!1 &4940160109939099124
